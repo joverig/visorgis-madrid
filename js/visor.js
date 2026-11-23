@@ -379,10 +379,12 @@
     const alternarPanel = (abrir) => {
       const ab = typeof abrir === 'boolean' ? abrir : !document.body.classList.contains('panel-abierto');
       document.body.classList.toggle('panel-abierto', ab);
-      $('#expandir').textContent = ab ? 'Cerrar' : 'Leer más';
+      $('#expandir').textContent = ab ? 'Leer menos' : 'Leer más';
       $('#expandir').setAttribute('aria-expanded', ab);
     };
     $('#panel-cabecera').addEventListener('click', () => { if (esMovil()) alternarPanel(); });
+    $('#expandir').addEventListener('click', () => alternarPanel());
+    $('#descripcion').addEventListener('click', () => { if (esMovil() && !document.body.classList.contains('panel-abierto')) alternarPanel(true); });
     map.on('pointerdown', () => { if (esMovil()) alternarPanel(false); });
 
     document.addEventListener('keydown', (e) => {
