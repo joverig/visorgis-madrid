@@ -1,0 +1,13 @@
+{
+  "name": "visorgis_madrid",
+  "version": "0.1.0",
+  "description": "Visor GIS de la evolución histórica de Madrid (planos 1622-1960 y ortofotos 1927-hoy) con slider temporal",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "node scripts/descargar_recursos.mjs",
+    "start": "node server.mjs 8080"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}

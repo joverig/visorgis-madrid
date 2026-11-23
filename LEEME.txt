@@ -1,0 +1,42 @@
+VISORGIS MADRID (POC) - Madrid en el tiempo
+===========================================
+
+Visor estatico (HTML + JS, sin build) con OpenLayers 10.5.0 y una linea temporal con fundido
+entre planos historicos (IGN, 1622-1960) y fotografia aerea (Comunidad de Madrid hasta 2003,
+PNOA historico del IGN desde 2004). No usa base de datos ni GeoServer de Serina.
+
+Carpetas
+  www\            el visor (lo que se despliega): index.html, css\, js\
+    js\capas.js   configuracion: pasos de la linea temporal, favoritos, tiempos del fundido
+    js\visor.js   logica del visor
+    lib\ol\       OpenLayers en local (lo crea 1_Descargar_recursos.bat; si falta, usa el CDN)
+    data\         capabilities WMTS de la Comunidad recortadas + capas_cm.json (editable)
+  node\           alternativa con Node 18+ (npm run setup / npm start), equivalente a los .bat
+  entregas\       zips que se pasen a otros
+
+Primera vez
+  1. 1_Descargar_recursos.bat   (necesita salida a cdn.jsdelivr.net e idem.comunidad.madrid)
+     Revisar en la ventana que ortofotos historicas detecta de la Comunidad.
+     Para ocultar una: en www\data\capas_cm.json poner "activa": false
+
+Cada sesion de trabajo
+  1. Arrancar_visor.bat  -> abre http://localhost:8080/  (Ctrl+C en la ventana para parar)
+     Sirve www\ con el PHP portable de C:\Trabajo\VisorGIS\php (solo como servidor estatico).
+     Si no lo encuentra y hay Node instalado, usa node\server.mjs.
+  2. Tras editar js o css basta con recargar el navegador (Ctrl+F5).
+
+Notas
+  - Hay que abrirlo por http://, no haciendo doble clic en index.html (los fetch a data\ fallan).
+  - Puerto 8080 para no chocar con el visor SIG COREgest (8000): se pueden tener los dos a la vez.
+  - Atajos: flechas izquierda/derecha cambian de ano, espacio reproduce. La URL guarda capa, zoom
+    y centro (#capa=...&z=...&c=lon,lat).
+  - Atribuciones obligatorias: IGN (CNIG) y Comunidad de Madrid (IDEM), CC BY 4.0.
+  - Sin probar aun con teselas reales: lo primero es validar cada paso del slider (F12, pestana Red,
+    peticiones GetMap/GetTile con error).
+
+Publicacion (GitHub Pages)
+  Repositorio: https://github.com/joverig/visorgis-madrid  (rama main = este proyecto)
+  Web:         https://joverig.github.io/visorgis-madrid/  (rama gh-pages = copia de www\)
+  Para publicar cambios: subir a main y copiar www\ a la rama gh-pages.
+  Las ortofotos de la Comunidad que salen en la linea temporal son solo las que tienen texto en
+  js\capas.js (textosCM); data\ esta recortado a esas capas.
