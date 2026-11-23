@@ -84,8 +84,11 @@
       const k = [nombre, clase, conTexto].join('|');
       if (!cache[k]) {
         const hito = clase === 'hito', propia = clase === 'propia';
+        const yac = clase === 'yacimiento';
         cache[k] = new S.Style({
-          image: hito
+          image: yac
+            ? new S.Circle({ radius: 7, fill: new S.Fill({ color: '#b07a4f' }), stroke: new S.Stroke({ color: '#f3e3cf', width: 2 }) })
+            : hito
             ? new S.RegularShape({ points: 4, radius: 7, angle: 0, fill: new S.Fill({ color: '#f3d27a' }),
                 stroke: new S.Stroke({ color: '#1a1816', width: 1.5 }) })
             : new S.Circle({ radius: propia ? 5 : 4,
@@ -113,6 +116,7 @@
         return conTexto ? [base, rotuloRecinto(feat.get('nombre'), feat.get('limite'))] : base;
       }
       if (tipo === 'hito') return punto(feat.get('nombre'), 'hito', conTexto);
+      if (tipo === 'yacimiento') return punto(feat.get('nombre'), 'yacimiento', zoom >= 11.5);
       const propia = feat.get('desde') === vigente;
       // Las puertas que siguen en pie (Alcalá, Toledo) se rotulan siempre
       return punto(feat.get('nombre'), propia ? 'propia' : 'anterior', conTexto && (propia || !!feat.get('conservada')));
@@ -208,6 +212,7 @@
     grupoHistorico = new ol.layer.Group({ layers: capas.map((c) => c.layer), zIndex: 10 });
 
     const srcPerimetros = fuenteGeojson(C.perimetros);
+    srcPerimetros.setAttributions('Límites y puertas: recreación aproximada propia · Término municipal © OpenStreetMap contributors (ODbL)');
     capaPerimetros = new ol.layer.Vector({
       source: srcPerimetros, style: estiloPerimetros(srcPerimetros), zIndex: 40, declutter: true,
     });
@@ -295,6 +300,7 @@
     estado.tipo = c.tipo;
     if (capaPerimetros) capaPerimetros.changed();
     $('#leyenda-rec').hidden = !$('#chk-perimetros').checked;
+    $('#leyenda-yac').hidden = c.anio >= 870;
     if (c.tipo === 'recreacion' && map) encuadrarRecinto(c, true);
     const d = $('#descripcion');
     d.innerHTML = '';
@@ -310,7 +316,8 @@
     d.scrollTop = 0;
     $('.panel-cuerpo').scrollTop = 0;
     centrarMarca(idx);
-    $('#fuente').textContent = c.atribucion || '';
+    $('#fuente').textContent = (c.atribucion || '') +
+      (c.anio >= 1948 && $('#chk-perimetros').checked ? ' · Término municipal © OpenStreetMap contributors (ODbL)' : '');
     const t = $('#tipo');
     t.textContent = { plano: 'Plano histórico', foto: 'Fotografía aérea',
       recreacion: 'Recreación aproximada' }[c.tipo] || '';
@@ -483,8 +490,16 @@
     if (!c || c.tipo !== 'recreacion') return;
     const src = fuenteGeojson(C.perimetros);
     const encuadrar = () => {
+      let geom;
       const f = src.getFeatures().find((x) => x.get('tipo') === 'recinto' && x.get('desde') === c.anio);
-      if (!f) return;
+      if (f) geom = f.getGeometry();
+      else {
+        // Paso sin recinto (Antes de Madrid): encuadrar sus yacimientos
+        const ext = ol.extent.createEmpty();
+        src.getFeatures().filter((x) => x.get('grupo') === c.id).forEach((x) => ol.extent.extend(ext, x.getGeometry().getExtent()));
+        if (ol.extent.isEmpty(ext)) return;
+        geom = ol.geom.Polygon.fromExtent(ext);
+      }
       const mapa = map.getTargetElement().getBoundingClientRect();
       const panel = document.querySelector('.panel').getBoundingClientRect();
       const pad = esMovil()
@@ -493,9 +508,9 @@
       if (soloSiHaceFalta) {
         const tam = map.getSize();
         const visible = view.calculateExtent([tam[0] - pad[1] - pad[3], tam[1] - pad[0] - pad[2]]);
-        if (ol.extent.containsExtent(visible, f.getGeometry().getExtent())) return;
+        if (ol.extent.containsExtent(visible, geom.getExtent())) return;
       }
-      view.fit(f.getGeometry(), { padding: pad, maxZoom: 17.5, duration: soloSiHaceFalta ? 600 : 0 });
+      view.fit(geom, { padding: pad, maxZoom: 17.5, duration: soloSiHaceFalta ? 600 : 0 });
     };
     if (src.getFeatures().length) encuadrar();
     else src.once('featuresloadend', encuadrar);
