@@ -411,6 +411,27 @@
     enlazarControles();
     const idx = leerHash();
     aplicar(idx >= 0 ? idx : 0); // sin enlace compartido: empieza por el primer paso
+    if (idx < 0) encuadrarInicio();
+  }
+
+  /* Sin enlace compartido: encuadra el recinto del primer paso (Mayrit), dejando libre
+     lo que tapan el panel y la cabecera */
+  function encuadrarInicio() {
+    const c = capas[0];
+    if (!c || c.fuente.type !== 'geojson') return;
+    const src = fuenteGeojson(c.fuente.url);
+    const encuadrar = () => {
+      const f = src.getFeatures().find((x) => x.get('tipo') === 'recinto' && x.get('fase') === c.fuente.fase);
+      if (!f) return;
+      const mapa = map.getTargetElement().getBoundingClientRect();
+      const panel = document.querySelector('.panel').getBoundingClientRect();
+      const pad = esMovil()
+        ? [70, 30, Math.max(40, mapa.bottom - panel.top + 30), 30]
+        : [80, Math.max(40, mapa.right - panel.left + 40), 50, 80];
+      view.fit(f.getGeometry(), { padding: pad, maxZoom: 17.5, duration: 0 });
+    };
+    if (src.getFeatures().length) encuadrar();
+    else src.once('featuresloadend', encuadrar);
   }
 
   document.addEventListener('DOMContentLoaded', iniciar);
