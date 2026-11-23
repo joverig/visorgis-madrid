@@ -17,7 +17,7 @@
       document.write('<script src="https://cdn.jsdelivr.net/npm/ol@10.5.0/dist/ol.js"><\/script>');
     }
   </script>
-  <link rel="stylesheet" href="css/visor.css?v=202611230237">
+  <link rel="stylesheet" href="css/visor.css?v=202611230825">
 </head>
 <body>
   <div id="mapa"></div>
@@ -38,9 +38,10 @@
         <h2 id="titulo"></h2>
       </div>
       <div id="leyenda-rec" class="leyenda-rec" hidden>
-        <span><i class="l-actual"></i>Muralla o cerca de la época (límite del recinto)</span>
-        <span><i class="l-anterior"></i>Murallas anteriores</span>
+        <span><i class="l-actual"></i>Límite de la ciudad en esa época</span>
+        <span><i class="l-anterior"></i>Límites anteriores</span>
         <span><i class="l-puerta"></i>Puertas</span>
+        <span><i class="l-hito"></i>Hitos</span>
       </div>
       <div class="opacidad">
         <label for="opacidad">Opacidad <b id="opacidad-valor">100%</b></label>
@@ -50,6 +51,7 @@
       <button id="expandir" class="expandir" aria-expanded="false">Leer más</button>
       <p id="fuente" class="fuente"></p>
       <div class="opciones">
+        <label><input type="checkbox" id="chk-perimetros" checked> Límites, puertas e hitos</label>
         <label><input type="checkbox" id="chk-calles"> Calles y nombres actuales</label>
       </div>
       <p class="ayuda">← → cambiar de año · espacio reproducir · H comparar con hoy</p>
@@ -78,7 +80,7 @@
     </div>
   </footer>
 
-  <script src="js/capas.js?v=202611230237"></script>
-  <script src="js/visor.js?v=202611230237"></script>
+  <script src="js/capas.js?v=202611230825"></script>
+  <script src="js/visor.js?v=202611230825"></script>
 </body>
 </html>
