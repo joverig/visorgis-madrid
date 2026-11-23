@@ -222,7 +222,6 @@
     if (activar === estado.verHoy) return;
     estado.verHoy = activar;
     grupoHistorico.setVisible(!activar);
-    capaFondo.setVisible(activar || $('#chk-fondo').checked || grupoHistorico.getOpacity() < 1);
     document.body.classList.toggle('ver-hoy', activar);
     const b = $('#hoy');
     if (activar) {
@@ -358,11 +357,9 @@
       grupoHistorico.setOpacity(o);
       $('#opacidad-valor').textContent = e.target.value + '%';
       document.body.classList.toggle('transparente', o < 1);
-      capaFondo.setVisible(o < 1 || estado.verHoy || $('#chk-fondo').checked);
     });
     $('#opacidad').addEventListener('dblclick', (e) => { e.target.value = 100; e.target.dispatchEvent(new Event('input')); });
     $('#hoy').addEventListener('click', () => { parar(); verHoy(!estado.verHoy); });
-    $('#chk-fondo').addEventListener('change', (e) => capaFondo.setVisible(e.target.checked || estado.verHoy || grupoHistorico.getOpacity() < 1));
     $('#chk-calles').addEventListener('change', (e) => capaCalles.setVisible(e.target.checked));
 
     const sel = $('#favoritos');
