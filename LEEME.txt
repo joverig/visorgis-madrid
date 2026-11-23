@@ -38,7 +38,7 @@ Capa de limites, puertas e hitos
   www\datos_propios\recintos_madrid.geojson (EPSG:4326). Cada elemento tiene tipo (recinto|puerta|hito),
   desde y opcionalmente hasta; el visor pinta lo que existia en el ano que se esta viendo.
   Recinto vigente en continuo, anteriores en discontinuo. Se edita en QGIS o a mano.
-  Desde 1900 los limites son la mancha urbana aproximada (no limites legales); tipo barrio = barrios nuevos.
+  1900 y 1930: mancha urbana aproximada; desde 1940: termino municipal (OSM, ODbL); tipo barrio = barrios nuevos.
 
 Ortofotos de la Comunidad en la linea temporal
   Solo las que tienen texto en www\js\capas.js (textosCM). 1_Descargar_recursos.bat respeta esa

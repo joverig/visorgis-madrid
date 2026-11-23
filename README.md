@@ -13,7 +13,7 @@ Visor web de la evolución histórica de Madrid: una línea temporal con fundido
 - Control de **opacidad** para ver la época sobre la ortofoto actual.
 - Texto de contexto histórico para cada paso, con qué buscar en el mapa.
 - Capa de **límites, puertas e hitos** con fecha sobre todos los años: el límite vigente en continuo,
-  los anteriores en discontinuo (murallas, cercas, Ensanche y, desde 1900, mancha urbana aproximada),
+  los anteriores en discontinuo (murallas, cercas, Ensanche, mancha urbana de 1900 y 1930 y, desde 1940, término municipal),
   más los barrios nuevos que van apareciendo.
 - Diseño adaptado a móvil (panel inferior desplegable, línea temporal desplazable).
 - El estado (capa, zoom y centro) se guarda en la URL para compartir vistas.
@@ -36,6 +36,7 @@ GitHub Pages sirve la rama `gh-pages`, que contiene una copia de `www/`.
 - Planos históricos, PNOA histórico, PNOA de máxima actualidad, MTN50 1ª edición e IGN Base:
   © Instituto Geográfico Nacional (CNIG), CC BY 4.0.
 - Ortofotos históricas: © Comunidad de Madrid (IDEM), CC BY 4.0.
+- Término municipal: © OpenStreetMap contributors, ODbL.
 - Recreaciones medievales: elaboración propia, **trazado aproximado y orientativo**, a partir de
   bibliografía (Gea Ortigas y Castellanos Oñate; Malalana Ureña; Comunidad de Madrid,
   *Ruta arqueológica Madrid medieval*). No tienen valor arqueológico.
