@@ -215,7 +215,7 @@
     grupoHistorico = new ol.layer.Group({ layers: capas.map((c) => c.layer), zIndex: 10 });
 
     const srcPerimetros = fuenteGeojson(C.perimetros);
-    srcPerimetros.setAttributions('Límites, puertas, hitos y barrios: recreación aproximada propia');
+    srcPerimetros.setAttributions('Límites, puertas, hitos y barrios: recreación aproximada propia · Término municipal © OpenStreetMap contributors (ODbL)');
     capaPerimetros = new ol.layer.Vector({
       source: srcPerimetros, style: estiloPerimetros(srcPerimetros), zIndex: 40, declutter: true,
     });
@@ -321,7 +321,8 @@
     d.scrollTop = 0;
     $('.panel-cuerpo').scrollTop = 0;
     centrarMarca(idx);
-    $('#fuente').textContent = c.atribucion || '';
+    $('#fuente').textContent = (c.atribucion || '') +
+      (c.anio >= 1940 && $('#chk-perimetros').checked ? ' · Término municipal © OpenStreetMap contributors (ODbL)' : '');
     const t = $('#tipo');
     t.textContent = { plano: 'Plano histórico', foto: 'Fotografía aérea',
       recreacion: 'Recreación aproximada' }[c.tipo] || '';

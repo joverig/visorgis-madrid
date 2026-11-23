@@ -31,7 +31,7 @@
   });
 
   // Recreaciones de elaboración propia (vector) para antes del primer plano conservado (1622)
-  const RECINTOS = 'datos_propios/recintos_madrid.geojson?v=202611230912';
+  const RECINTOS = 'datos_propios/recintos_madrid.geojson?v=202611230917';
   const ATR_REC = 'Recreación aproximada de elaboración propia a partir de bibliografía (Gea Ortigas, Malalana, Comunidad de Madrid). Trazado orientativo, no arqueológico. ';
   const recreacion = (id, anio, etiqueta, titulo, fase, descripcion) => ({ // fase: solo orden
     id, anio, etiqueta, titulo, tipo: 'recreacion', descripcion,
@@ -311,17 +311,12 @@
       plano('parcelario4060', 1950, '1940-60', 'Plano parcelario 1940-1960', 'parcelarioMadrid', [
         'El Madrid de la posguerra y de la autarquía. Entre 1948 y 1954 la capital anexiona trece municipios (Chamartín de la Rosa, Carabanchel Alto y Bajo, Canillas, Canillejas, Hortaleza, Barajas, Fuencarral, El Pardo, Aravaca, Vallecas, Vicálvaro y Villaverde) y pasa de 68 a más de 600 km².',
         'El Plan Bidagor (1946) organiza el crecimiento, pero no puede con la llegada masiva de emigrantes: miles de chabolas rodean la ciudad y el régimen responde con poblados de absorción y poblados dirigidos. La Castellana se prolonga hacia el norte y aparecen los primeros rascacielos, como el Edificio España (1953).',
-        'En el mapa: la mancha urbana desborda el Ensanche y aparecen barrios nuevos en los antiguos pueblos anexionados.',
+        'En el mapa: el término municipal tras las anexiones y los barrios nuevos que van apareciendo en los antiguos pueblos.',
       ]),
       vuelo('ams1956', 1956, '1956', 'Vuelo americano (Serie B)', 'AMS_1956-1957', [
         'El vuelo realizado por el ejército de Estados Unidos en 1956-57, tras los acuerdos de 1953 que permitieron sus bases en España (Torrejón entre ellas). Es la primera imagen completa y fiable de todo el país y la referencia para estudiar el antes y el después del desarrollismo.',
         'Madrid tiene casi dos millones de habitantes. Se acaba el Santiago Bernabéu (1947), crece la Castellana norte, y en los bordes conviven chabolas, poblados dirigidos como Caño Roto o Entrevías y campos de cultivo que pronto serán barrios.',
         'En el mapa: dónde acababa la ciudad; casi todo lo que hay más allá de la futura M-30 todavía es campo.',
-      ]),
-      vuelo('nacional', 1984, '1981-86', 'Vuelo nacional', 'Nacional_1981-1986', [
-        'El vuelo nacional de 1981-1986, los años de la consolidación democrática, la entrada en la Comunidad Europea (1986) y la Movida madrileña.',
-        'Los ayuntamientos democráticos acometen la remodelación de barrios (Orcasitas, Palomeras, San Blas...) y el Plan General de 1985 se propone "recuperar" la ciudad: parques como el de la Cuña Verde o el Lineal del Manzanares, rehabilitación del centro y freno a la expansión.',
-        'En el mapa: los nuevos barrios de vivienda pública que sustituyen al chabolismo.',
       ]),
       vuelo('olistat', 1997, '1997-98', 'Vuelo OLISTAT', 'OLISTAT', [
         'Ortofoto OLISTAT (1997-1998), hecha para el control de las ayudas agrarias europeas, por eso cubre muy bien el campo. Madrid sale de la crisis de principios de los noventa y entra en una década de crecimiento.',
