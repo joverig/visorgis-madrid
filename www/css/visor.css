@@ -179,8 +179,8 @@ html, body { height: 100%; height: 100dvh; }
   .timeline { gap: 8px; padding: 0 8px env(safe-area-inset-bottom) 8px; }
   .botones { gap: 4px; }
   .botones button { width: 36px; height: 36px; }
-  #play { width: 42px; height: 42px; }
-  #prev, #next { width: 32px; height: 32px; font-size: 12px; }
+  #play { display: none; }
+  #prev, #next { width: 44px; height: 44px; font-size: 15px; background: var(--acento); color: #1a1816; border: 0; }
   .botones button.hoy { min-width: 0; padding: 0 10px; margin-left: 2px; font-size: 12.5px; }
   .pista-scroll { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
   .pista-scroll::-webkit-scrollbar { display: none; }
