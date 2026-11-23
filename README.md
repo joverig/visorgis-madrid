@@ -12,6 +12,8 @@ Visor web de la evolución histórica de Madrid: una línea temporal con fundido
 - Botón **Ver hoy** para alternar entre la época elegida y la ortofoto actual.
 - Control de **opacidad** para ver la época sobre la ortofoto actual.
 - Texto de contexto histórico para cada paso, con qué buscar en el mapa.
+- Capa de **límites, puertas e hitos** con fecha sobre todos los años: el límite vigente en continuo,
+  los anteriores en discontinuo (murallas, cercas, Ensanche y término municipal provisional).
 - Diseño adaptado a móvil (panel inferior desplegable, línea temporal desplazable).
 - El estado (capa, zoom y centro) se guarda en la URL para compartir vistas.
 
@@ -21,7 +23,7 @@ Visor web de la evolución histórica de Madrid: una línea temporal con fundido
   - `js/visor.js` — lógica (OpenLayers 10, build UMD).
   - `lib/ol/` — OpenLayers en local.
   - `data/` — capabilities WMTS de la Comunidad de Madrid recortadas.
-  - `datos_propios/recintos_madrid.geojson` — recreación aproximada de murallas y cercas.
+  - `datos_propios/recintos_madrid.geojson` — límites, puertas e hitos con fecha (`desde`/`hasta`); trazados aproximados.
 - `1_Descargar_recursos.bat`, `descargar_recursos.ps1` — regeneran `lib/` y `data/` (Windows).
 - `Arrancar_visor.bat` — servidor local en http://localhost:8080/.
 - `node/` — alternativa con Node 18+ (`npm run setup`, `npm start`).

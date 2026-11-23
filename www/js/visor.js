@@ -4,9 +4,9 @@
 
   const C = window.VISOR_CONFIG;
   const $ = (s) => document.querySelector(s);
-  const estado = { v: 0, idxMostrado: -1, reproduciendo: false, verHoy: false };
+  const estado = { v: 0, idxMostrado: -1, reproduciendo: false, verHoy: false, anio: 0, tipo: '' };
   let capas = [];
-  let map, view, capaFondo, capaCalles, grupoHistorico;
+  let map, view, capaFondo, capaCalles, grupoHistorico, capaPerimetros;
 
   /* ---------- Fuentes ---------- */
   function crearSource(c) {
@@ -30,9 +30,12 @@
     throw new Error('Tipo de fuente no soportado: ' + f.type);
   }
 
-  /* ---------- Recreaciones vectoriales (antes de 1622) ---------- */
-  // Un único origen GeoJSON compartido; cada paso dibuja su fase rellena,
-  // las fases anteriores en discontinuo y las puertas hasta esa fase.
+  /* ---------- Perímetros, puertas e hitos (capa vectorial sobre todos los años) ---------- */
+  // Cada elemento lleva `desde` (y opcionalmente `hasta`). Para el año que se está viendo:
+  //   - el último perímetro vigente se dibuja en continuo (relleno solo en las recreaciones)
+  //   - los perímetros anteriores, en discontinuo
+  //   - las puertas de ese perímetro, con nombre; las de perímetros anteriores, solo el punto
+  //   - los hitos ya construidos, con nombre
   const fuentesGeojson = {};
   function fuenteGeojson(url) {
     if (!fuentesGeojson[url]) {
@@ -40,62 +43,81 @@
     }
     return fuentesGeojson[url];
   }
-  function estiloRecreacion(fase) {
+  const existe = (f, anio) => f.get('desde') <= anio && !(f.get('hasta') && anio >= f.get('hasta'));
+  function perimetroVigente(src, anio) {
+    let v = -Infinity;
+    src.getFeatures().forEach((f) => {
+      if (f.get('tipo') === 'recinto' && f.get('desde') <= anio && f.get('desde') > v) v = f.get('desde');
+    });
+    return v;
+  }
+  function estiloPerimetros(src) {
     const S = ol.style;
-    const ZOOM_ETIQUETAS = 13.5; // a partir de aquí se rotulan puertas y recintos
+    const ZOOM_ETIQUETAS = 13.5; // a partir de aquí se rotulan puertas, hitos y recintos
     const fuente = (peso, px) => peso + ' ' + px + 'px "Segoe UI", system-ui, sans-serif';
     const halo = new S.Stroke({ color: '#1a1816', width: 3.5 });
-    const actual = new S.Style({
-      fill: new S.Fill({ color: 'rgba(214, 120, 64, 0.30)' }),
-      stroke: new S.Stroke({ color: '#e98a4f', width: 3.5 }),
-    });
+    const trazo = new S.Stroke({ color: '#e98a4f', width: 3.5 });
+    const actualRelleno = new S.Style({ fill: new S.Fill({ color: 'rgba(214, 120, 64, 0.30)' }), stroke: trazo });
+    const actualLinea = new S.Style({ stroke: trazo });
     const anterior = new S.Style({
       stroke: new S.Stroke({ color: 'rgba(245, 225, 190, 0.85)', width: 2, lineDash: [7, 6] }),
     });
-    // Nombre del recinto de la época, en el interior del polígono
-    const rotuloRecinto = (nombre, limite) => new S.Style({
-      geometry: (f) => f.getGeometry().getInteriorPoint(),
-      text: new S.Text({
-        // OL admite texto enriquecido: [texto, fuente, texto, fuente...]
-        text: [nombre, fuente('italic 600', 15), '\n', '', 'Límite: ' + limite, fuente('400', 12)],
-        fill: new S.Fill({ color: '#ffd9b8' }), textAlign: 'center',
-        stroke: new S.Stroke({ color: '#1a1816', width: 4 }), overflow: true,
-        declutterMode: 'obstacle', // se dibuja siempre y los demás rótulos lo esquivan
-      }),
-      zIndex: 5,
-    });
+    const rotulos = {};
+    const rotuloRecinto = (nombre, limite) => {
+      if (!rotulos[nombre]) {
+        rotulos[nombre] = new S.Style({
+          geometry: (f) => f.getGeometry().getInteriorPoint(),
+          text: new S.Text({
+            // texto enriquecido de OL: [texto, fuente, texto, fuente...]
+            text: [nombre, fuente('italic 600', 15), '\n', '', 'Límite: ' + limite, fuente('400', 12)],
+            fill: new S.Fill({ color: '#ffd9b8' }), textAlign: 'center',
+            stroke: new S.Stroke({ color: '#1a1816', width: 4 }), overflow: true,
+            declutterMode: 'obstacle', // se dibuja siempre y los demás rótulos lo esquivan
+          }),
+          zIndex: 5,
+        });
+      }
+      return rotulos[nombre];
+    };
     const cache = {};
-    const punto = (nombre, hito, propia, conTexto) => {
-      const k = [nombre, hito, propia, conTexto].join('|');
+    const punto = (nombre, clase, conTexto) => {
+      const k = [nombre, clase, conTexto].join('|');
       if (!cache[k]) {
+        const hito = clase === 'hito', propia = clase === 'propia';
         cache[k] = new S.Style({
-          image: new S.Circle({ radius: hito ? 6.5 : propia ? 5 : 4,
-            fill: new S.Fill({ color: hito ? '#f3d27a' : propia ? '#e98a4f' : '#c9b79a' }),
-            stroke: new S.Stroke({ color: '#1a1816', width: 1.5 }) }),
+          image: hito
+            ? new S.RegularShape({ points: 4, radius: 7, angle: 0, fill: new S.Fill({ color: '#f3d27a' }),
+                stroke: new S.Stroke({ color: '#1a1816', width: 1.5 }) })
+            : new S.Circle({ radius: propia ? 5 : 4,
+                fill: new S.Fill({ color: propia ? '#e98a4f' : '#c9b79a' }),
+                stroke: new S.Stroke({ color: '#1a1816', width: 1.5 }) }),
           text: conTexto ? new S.Text({
-            text: nombre, offsetY: -15,
-            font: fuente(hito || propia ? '600' : '400', hito ? 14 : propia ? 13 : 12),
-            fill: new S.Fill({ color: propia || hito ? '#fff7ea' : '#d9cdb8' }), stroke: halo,
+            text: nombre, offsetY: -15, font: fuente('600', hito ? 13.5 : 13),
+            fill: new S.Fill({ color: hito ? '#fbe7b0' : '#fff7ea' }), stroke: halo,
           }) : undefined,
-          zIndex: propia || hito ? 10 : 8,
+          zIndex: hito ? 11 : propia ? 10 : 8,
         });
       }
       return cache[k];
     };
     return (feat, res) => {
-      const f = feat.get('fase');
-      if (f > fase) return null;
+      const anio = estado.anio;
+      if (!existe(feat, anio)) return null;
+      const vigente = perimetroVigente(src, anio);
       const zoom = view ? view.getZoomForResolution(res) : 16;
       const conTexto = zoom >= ZOOM_ETIQUETAS;
-      if (feat.get('tipo') === 'recinto') {
-        if (f !== fase) return anterior;
-        return conTexto ? [actual, rotuloRecinto(feat.get('nombre'), feat.get('limite'))] : actual;
+      const tipo = feat.get('tipo');
+      if (tipo === 'recinto') {
+        if (feat.get('desde') !== vigente) return anterior;
+        const base = estado.tipo === 'recreacion' ? actualRelleno : actualLinea;
+        return conTexto ? [base, rotuloRecinto(feat.get('nombre'), feat.get('limite'))] : base;
       }
-      const hito = feat.get('tipo') === 'hito';
-      // Puertas de épocas anteriores: solo el punto, sin nombre, para no recargar el mapa
-      return punto(feat.get('nombre'), hito, f === fase, conTexto && (hito || f === fase));
+      if (tipo === 'hito') return punto(feat.get('nombre'), 'hito', conTexto);
+      const propia = feat.get('desde') === vigente;
+      return punto(feat.get('nombre'), propia ? 'propia' : 'anterior', conTexto && propia);
     };
   }
+
 
 
   /* ---------- Ortofotos históricas de la Comunidad de Madrid (opcional) ---------- */
@@ -170,11 +192,9 @@
     });
 
     capas.forEach((c, k) => {
-      if (c.fuente.type === 'geojson') {
-        c.layer = new ol.layer.Vector({
-          source: fuenteGeojson(c.fuente.url), style: estiloRecreacion(c.fuente.fase),
-          visible: false, zIndex: 10, declutter: true,
-        });
+      if (c.fuente.type === 'vacia') {
+        // Pasos de recreación: no tienen imagen propia, lo dibuja la capa de perímetros
+        c.layer = new ol.layer.Vector({ source: new ol.source.Vector(), visible: false, zIndex: 10 });
       } else {
         const src = crearSource(c);
         engancharCarga(src);
@@ -186,10 +206,15 @@
     // Todas las capas de la línea temporal en un grupo: así se ocultan de golpe con "Ver hoy"
     grupoHistorico = new ol.layer.Group({ layers: capas.map((c) => c.layer), zIndex: 10 });
 
+    const srcPerimetros = fuenteGeojson(C.perimetros);
+    capaPerimetros = new ol.layer.Vector({
+      source: srcPerimetros, style: estiloPerimetros(srcPerimetros), zIndex: 40, declutter: true,
+    });
+
     map = new ol.Map({
       target: 'mapa',
       view,
-      layers: [capaFondo, grupoHistorico, capaCalles],
+      layers: [capaFondo, grupoHistorico, capaPerimetros, capaCalles],
     });
     map.addControl(new ol.control.ScaleLine({ units: 'metric' }));
     // Atribuciones plegables en pantallas pequeñas
@@ -265,7 +290,10 @@
     const c = capas[idx];
     $('#anio').textContent = c.etiqueta;
     $('#titulo').textContent = c.titulo;
-    $('#leyenda-rec').hidden = c.tipo !== 'recreacion';
+    estado.anio = c.anio;
+    estado.tipo = c.tipo;
+    if (capaPerimetros) capaPerimetros.changed();
+    $('#leyenda-rec').hidden = !$('#chk-perimetros').checked;
     if (c.tipo === 'recreacion' && map) encuadrarRecinto(c, true);
     const d = $('#descripcion');
     d.innerHTML = '';
@@ -391,6 +419,10 @@
     $('#opacidad').addEventListener('dblclick', (e) => { e.target.value = 100; e.target.dispatchEvent(new Event('input')); });
     $('#hoy').addEventListener('click', () => { parar(); verHoy(!estado.verHoy); });
     $('#chk-calles').addEventListener('change', (e) => capaCalles.setVisible(e.target.checked));
+    $('#chk-perimetros').addEventListener('change', (e) => {
+      capaPerimetros.setVisible(e.target.checked);
+      $('#leyenda-rec').hidden = !e.target.checked;
+    });
 
     const sel = $('#favoritos');
     C.favoritos.forEach((f, k) => sel.add(new Option(f.nombre, k)));
@@ -447,10 +479,10 @@
   // Encuadra el recinto de un paso de recreación dejando libre lo que tapan panel y cabecera.
   // Con soloSiHaceFalta, no mueve el mapa si el recinto ya se ve entero.
   function encuadrarRecinto(c, soloSiHaceFalta) {
-    if (!c || c.fuente.type !== 'geojson') return;
-    const src = fuenteGeojson(c.fuente.url);
+    if (!c || c.tipo !== 'recreacion') return;
+    const src = fuenteGeojson(C.perimetros);
     const encuadrar = () => {
-      const f = src.getFeatures().find((x) => x.get('tipo') === 'recinto' && x.get('fase') === c.fuente.fase);
+      const f = src.getFeatures().find((x) => x.get('tipo') === 'recinto' && x.get('desde') === c.anio);
       if (!f) return;
       const mapa = map.getTargetElement().getBoundingClientRect();
       const panel = document.querySelector('.panel').getBoundingClientRect();
