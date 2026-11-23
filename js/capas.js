@@ -318,11 +318,6 @@
         'Madrid tiene casi dos millones de habitantes. Se acaba el Santiago Bernabéu (1947), crece la Castellana norte, y en los bordes conviven chabolas, poblados dirigidos como Caño Roto o Entrevías y campos de cultivo que pronto serán barrios.',
         'En el mapa: dónde acababa la ciudad; casi todo lo que hay más allá de la futura M-30 todavía es campo.',
       ]),
-      vuelo('interministerial', 1975, '1973-86', 'Vuelo interministerial', 'Interministerial_1973-1986', [
-        'El vuelo interministerial (1973-1986), realizado por varios ministerios para tener una cartografía moderna del país. Coincide con la muerte de Franco (1975) y la Transición.',
-        'Madrid ha alcanzado su máximo de población, más de 3,1 millones, y los municipios del sur (Móstoles, Alcorcón, Leganés, Getafe, Fuenlabrada) crecen a ritmos vertiginosos. Se inaugura la M-30, y los movimientos vecinales de los barrios obreros reclaman colegios, centros de salud y zonas verdes.',
-        'En el mapa: la M-30, los grandes polígonos de bloques y las primeras ciudades dormitorio del sur.',
-      ]),
       vuelo('nacional', 1984, '1981-86', 'Vuelo nacional', 'Nacional_1981-1986', [
         'El vuelo nacional de 1981-1986, los años de la consolidación democrática, la entrada en la Comunidad Europea (1986) y la Movida madrileña.',
         'Los ayuntamientos democráticos acometen la remodelación de barrios (Orcasitas, Palomeras, San Blas...) y el Plan General de 1985 se propone "recuperar" la ciudad: parques como el de la Cuña Verde o el Lineal del Manzanares, rehabilitación del centro y freno a la expansión.',
