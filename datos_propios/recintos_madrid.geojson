@@ -10,8 +10,9 @@
    "properties": {
     "tipo": "recinto",
     "fase": 1,
-    "nombre": "Almudayna de Mayrit (s. IX)",
-    "descripcion": "Recinto emiral fundado por Muhammad I (852-886)"
+    "nombre": "Mayrit (s. IX)",
+    "descripcion": "Recinto emiral fundado por Muhammad I (852-886)",
+    "limite": "muralla de la fortaleza"
    },
    "geometry": {
     "type": "Polygon",
@@ -54,8 +55,9 @@
    "properties": {
     "tipo": "recinto",
     "fase": 2,
-    "nombre": "Muralla cristiana (s. XII)",
-    "descripcion": "Recinto levantado tras la conquista castellana (1085)"
+    "nombre": "Villa de Madrid (s. XII)",
+    "descripcion": "Recinto levantado tras la conquista castellana (1085)",
+    "limite": "muralla cristiana"
    },
    "geometry": {
     "type": "Polygon",
@@ -130,8 +132,9 @@
    "properties": {
     "tipo": "recinto",
     "fase": 3,
-    "nombre": "Cerca del arrabal (s. XV)",
-    "descripcion": "Cerca que engloba los arrabales crecidos fuera de la muralla"
+    "nombre": "Villa y arrabales (s. XV)",
+    "descripcion": "Cerca que engloba los arrabales crecidos fuera de la muralla",
+    "limite": "cerca del arrabal"
    },
    "geometry": {
     "type": "Polygon",
@@ -214,8 +217,9 @@
    "properties": {
     "tipo": "recinto",
     "fase": 4,
-    "nombre": "Cerca de Felipe II (1566)",
-    "descripcion": "Cerca fiscal de la nueva capital de la Monarquía"
+    "nombre": "Madrid, capital (1566)",
+    "descripcion": "Cerca fiscal de la nueva capital de la Monarquía",
+    "limite": "cerca de Felipe II"
    },
    "geometry": {
     "type": "Polygon",

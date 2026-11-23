@@ -53,12 +53,14 @@
       stroke: new S.Stroke({ color: 'rgba(245, 225, 190, 0.85)', width: 2, lineDash: [7, 6] }),
     });
     // Nombre del recinto de la época, en el interior del polígono
-    const rotuloRecinto = (nombre) => new S.Style({
+    const rotuloRecinto = (nombre, limite) => new S.Style({
       geometry: (f) => f.getGeometry().getInteriorPoint(),
       text: new S.Text({
-        text: nombre, font: fuente('italic 600', 15), fill: new S.Fill({ color: '#ffd9b8' }),
+        // OL admite texto enriquecido: [texto, fuente, texto, fuente...]
+        text: [nombre, fuente('italic 600', 15), '\n', '', 'Límite: ' + limite, fuente('400', 12)],
+        fill: new S.Fill({ color: '#ffd9b8' }), textAlign: 'center',
         stroke: new S.Stroke({ color: '#1a1816', width: 4 }), overflow: true,
-        declutterMode: 'none', // el nombre del recinto se dibuja siempre
+        declutterMode: 'obstacle', // se dibuja siempre y los demás rótulos lo esquivan
       }),
       zIndex: 5,
     });
@@ -87,10 +89,11 @@
       const conTexto = zoom >= ZOOM_ETIQUETAS;
       if (feat.get('tipo') === 'recinto') {
         if (f !== fase) return anterior;
-        return conTexto ? [actual, rotuloRecinto(feat.get('nombre'))] : actual;
+        return conTexto ? [actual, rotuloRecinto(feat.get('nombre'), feat.get('limite'))] : actual;
       }
       const hito = feat.get('tipo') === 'hito';
-      return punto(feat.get('nombre'), hito, f === fase, conTexto);
+      // Puertas de épocas anteriores: solo el punto, sin nombre, para no recargar el mapa
+      return punto(feat.get('nombre'), hito, f === fase, conTexto && (hito || f === fase));
     };
   }
 
@@ -262,6 +265,8 @@
     const c = capas[idx];
     $('#anio').textContent = c.etiqueta;
     $('#titulo').textContent = c.titulo;
+    $('#leyenda-rec').hidden = c.tipo !== 'recreacion';
+    if (c.tipo === 'recreacion' && map) encuadrarRecinto(c, true);
     const d = $('#descripcion');
     d.innerHTML = '';
     [].concat(c.descripcion || []).forEach((txt) => {
@@ -437,8 +442,11 @@
 
   /* Sin enlace compartido: encuadra el recinto del primer paso (Mayrit), dejando libre
      lo que tapan el panel y la cabecera */
-  function encuadrarInicio() {
-    const c = capas[0];
+  function encuadrarInicio() { encuadrarRecinto(capas[0], false); }
+
+  // Encuadra el recinto de un paso de recreación dejando libre lo que tapan panel y cabecera.
+  // Con soloSiHaceFalta, no mueve el mapa si el recinto ya se ve entero.
+  function encuadrarRecinto(c, soloSiHaceFalta) {
     if (!c || c.fuente.type !== 'geojson') return;
     const src = fuenteGeojson(c.fuente.url);
     const encuadrar = () => {
@@ -449,11 +457,17 @@
       const pad = esMovil()
         ? [70, 30, Math.max(40, mapa.bottom - panel.top + 30), 30]
         : [80, Math.max(40, mapa.right - panel.left + 40), 50, 80];
-      view.fit(f.getGeometry(), { padding: pad, maxZoom: 17.5, duration: 0 });
+      if (soloSiHaceFalta) {
+        const tam = map.getSize();
+        const visible = view.calculateExtent([tam[0] - pad[1] - pad[3], tam[1] - pad[0] - pad[2]]);
+        if (ol.extent.containsExtent(visible, f.getGeometry().getExtent())) return;
+      }
+      view.fit(f.getGeometry(), { padding: pad, maxZoom: 17.5, duration: soloSiHaceFalta ? 600 : 0 });
     };
     if (src.getFeatures().length) encuadrar();
     else src.once('featuresloadend', encuadrar);
   }
+
 
   document.addEventListener('DOMContentLoaded', iniciar);
 })();
