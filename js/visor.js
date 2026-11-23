@@ -409,7 +409,7 @@
     construirTimeline();
     enlazarControles();
     const idx = leerHash();
-    aplicar(idx >= 0 ? idx : capas.findIndex((c) => c.id === 'texeira'));
+    aplicar(idx >= 0 ? idx : 0); // sin enlace compartido: empieza por el primer paso
   }
 
   document.addEventListener('DOMContentLoaded', iniciar);
