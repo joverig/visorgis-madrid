@@ -31,7 +31,7 @@
   });
 
   // Recreaciones de elaboración propia (vector) para antes del primer plano conservado (1622)
-  const RECINTOS = 'datos_propios/recintos_madrid.geojson?v=202611230825';
+  const RECINTOS = 'datos_propios/recintos_madrid.geojson?v=202611230828';
   const ATR_REC = 'Recreación aproximada de elaboración propia a partir de bibliografía (Gea Ortigas, Malalana, Comunidad de Madrid). Trazado orientativo, no arqueológico.';
   const recreacion = (id, anio, etiqueta, titulo, fase, descripcion) => ({ // fase: solo orden
     id, anio, etiqueta, titulo, tipo: 'recreacion', descripcion,
