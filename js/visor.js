@@ -42,6 +42,9 @@
   }
   function estiloRecreacion(fase) {
     const S = ol.style;
+    const ZOOM_ETIQUETAS = 13.5; // a partir de aquí se rotulan puertas y recintos
+    const fuente = (peso, px) => peso + ' ' + px + 'px "Segoe UI", system-ui, sans-serif';
+    const halo = new S.Stroke({ color: '#1a1816', width: 3.5 });
     const actual = new S.Style({
       fill: new S.Fill({ color: 'rgba(214, 120, 64, 0.30)' }),
       stroke: new S.Stroke({ color: '#e98a4f', width: 3.5 }),
@@ -49,30 +52,48 @@
     const anterior = new S.Style({
       stroke: new S.Stroke({ color: 'rgba(245, 225, 190, 0.85)', width: 2, lineDash: [7, 6] }),
     });
-    const cacheTxt = {};
-    const etiqueta = (nombre, hito, zoom) => {
-      const k = nombre + hito + (zoom >= 16);
-      if (!cacheTxt[k]) {
-        cacheTxt[k] = new S.Style({
-          image: new S.Circle({ radius: hito ? 6 : 4.5,
-            fill: new S.Fill({ color: hito ? '#f3d27a' : '#e98a4f' }),
+    // Nombre del recinto de la época, en el interior del polígono
+    const rotuloRecinto = (nombre) => new S.Style({
+      geometry: (f) => f.getGeometry().getInteriorPoint(),
+      text: new S.Text({
+        text: nombre, font: fuente('italic 600', 15), fill: new S.Fill({ color: '#ffd9b8' }),
+        stroke: new S.Stroke({ color: '#1a1816', width: 4 }), overflow: true,
+        declutterMode: 'none', // el nombre del recinto se dibuja siempre
+      }),
+      zIndex: 5,
+    });
+    const cache = {};
+    const punto = (nombre, hito, propia, conTexto) => {
+      const k = [nombre, hito, propia, conTexto].join('|');
+      if (!cache[k]) {
+        cache[k] = new S.Style({
+          image: new S.Circle({ radius: hito ? 6.5 : propia ? 5 : 4,
+            fill: new S.Fill({ color: hito ? '#f3d27a' : propia ? '#e98a4f' : '#c9b79a' }),
             stroke: new S.Stroke({ color: '#1a1816', width: 1.5 }) }),
-          text: zoom >= 16 || hito ? new S.Text({
-            text: nombre, offsetY: -14, font: (hito ? '600 13px' : '12px') + ' "Segoe UI", sans-serif',
-            fill: new S.Fill({ color: '#fff7ea' }), stroke: new S.Stroke({ color: '#1a1816', width: 3.5 }),
+          text: conTexto ? new S.Text({
+            text: nombre, offsetY: -15,
+            font: fuente(hito || propia ? '600' : '400', hito ? 14 : propia ? 13 : 12),
+            fill: new S.Fill({ color: propia || hito ? '#fff7ea' : '#d9cdb8' }), stroke: halo,
           }) : undefined,
+          zIndex: propia || hito ? 10 : 8,
         });
       }
-      return cacheTxt[k];
+      return cache[k];
     };
     return (feat, res) => {
       const f = feat.get('fase');
       if (f > fase) return null;
-      if (feat.get('tipo') === 'recinto') return f === fase ? actual : anterior;
       const zoom = view ? view.getZoomForResolution(res) : 16;
-      return etiqueta(feat.get('nombre'), feat.get('tipo') === 'hito', zoom);
+      const conTexto = zoom >= ZOOM_ETIQUETAS;
+      if (feat.get('tipo') === 'recinto') {
+        if (f !== fase) return anterior;
+        return conTexto ? [actual, rotuloRecinto(feat.get('nombre'))] : actual;
+      }
+      const hito = feat.get('tipo') === 'hito';
+      return punto(feat.get('nombre'), hito, f === fase, conTexto);
     };
   }
+
 
   /* ---------- Ortofotos históricas de la Comunidad de Madrid (opcional) ---------- */
   async function cargarCapasCM() {
