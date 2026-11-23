@@ -46,7 +46,8 @@ Ortofotos de la Comunidad en la linea temporal
 
 Cache del navegador
   index.html carga css y js con ?v=AAAAMMDDhhmm. Al publicar cambios hay que subir ese numero
-  (y el de recintos_madrid.geojson en capas.js) para que los moviles no usen la version vieja.
+  (y el de recintos_madrid.geojson en capas.js, VERSION en index.html y www\version.txt).
+  Si un navegador tiene un index.html antiguo, al ver un version.txt distinto recarga solo.
 
 Publicacion (GitHub Pages)
   Repositorio: https://github.com/joverig/visorgis-madrid  (rama main = este proyecto)
