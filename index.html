@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#161412">
+  <meta name="description" content="Visor de la evolución histórica de Madrid: recreaciones medievales, planos históricos (1622-1960) y fotografía aérea hasta hoy.">
+  <title>Madrid en el tiempo · visorgis_madrid</title>
+
+  <!-- OpenLayers: primero la copia local (lib/), si no existe, CDN -->
+  <link rel="stylesheet" href="lib/ol/ol.css"
+        onerror="this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/ol@10.5.0/ol.css'">
+  <script src="lib/ol/ol.js"></script>
+  <script>
+    if (!window.ol) {
+      console.info('lib/ol no encontrado: cargando OpenLayers desde CDN');
+      document.write('<script src="https://cdn.jsdelivr.net/npm/ol@10.5.0/dist/ol.js"><\/script>');
+    }
+  </script>
+  <link rel="stylesheet" href="css/visor.css">
+</head>
+<body>
+  <div id="mapa"></div>
+
+  <header class="cabecera">
+    <h1>Madrid <span>en el tiempo</span></h1>
+    <select id="favoritos" aria-label="Ir a un lugar">
+      <option value="">Ir a…</option>
+    </select>
+  </header>
+
+  <aside class="panel">
+    <button id="plegar" class="plegar" title="Plegar panel">⟨</button>
+    <div class="panel-cuerpo">
+      <div class="panel-cabecera" id="panel-cabecera">
+        <div id="anio" class="anio">—</div>
+        <span id="tipo" class="tipo"></span>
+        <h2 id="titulo"></h2>
+        <button id="expandir" class="expandir" aria-expanded="false">Leer más</button>
+      </div>
+      <div class="opacidad">
+        <label for="opacidad">Opacidad del año <b id="opacidad-valor">100%</b></label>
+        <input type="range" id="opacidad" min="0" max="100" step="5" value="100" aria-label="Opacidad de la capa histórica">
+      </div>
+      <div id="descripcion" class="descripcion"></div>
+      <p id="fuente" class="fuente"></p>
+      <div class="opciones">
+        <label><input type="checkbox" id="chk-fondo" checked> Ortofoto actual de fondo (gris)</label>
+        <label><input type="checkbox" id="chk-calles"> Calles y nombres actuales</label>
+      </div>
+      <p class="ayuda">← → cambiar de año · espacio reproducir · H comparar con hoy</p>
+    </div>
+  </aside>
+
+  <div id="cargando" class="cargando">Cargando teselas…</div>
+
+  <footer class="timeline">
+    <div class="botones">
+      <button id="prev" title="Año anterior (←)">⏮</button>
+      <button id="play" title="Reproducir (espacio)">▶</button>
+      <button id="next" title="Año siguiente (→)">⏭</button>
+      <button id="hoy" class="hoy" title="Comparar con la ortofoto actual (H)">Ver hoy</button>
+    </div>
+    <div class="pista-scroll">
+      <div class="pista">
+        <input id="slider" type="range" min="0" max="1" step="0.01" value="0" aria-label="Año">
+        <div id="marcas" class="marcas"></div>
+      </div>
+    </div>
+    <div class="leyenda">
+      <span><i class="recreacion"></i> Recreaciones</span>
+      <span><i class="plano"></i> Planos</span>
+      <span><i class="foto"></i> Fotografía aérea</span>
+    </div>
+  </footer>
+
+  <script src="js/capas.js"></script>
+  <script src="js/visor.js"></script>
+</body>
+</html>

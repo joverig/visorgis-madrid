@@ -1,0 +1,1016 @@
+[
+  {
+    "identifier": "fotosAereasHistoricas_1920-1929_orto-fotoplano-madrid-1927-ed50",
+    "title": "1927 - Ortofoto Madrid Capital 10m",
+    "anio": 1927,
+    "activa": true
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1930-1939_orto-mosaico-hoja-509-1933-ed50",
+    "title": "1933 - Ortofoto Venturada",
+    "anio": 1933,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1940-1949_Madrid (Retiro-Salamanca) 1942",
+    "title": "1942 - Ortofoto Madrid (Retiro-Salamanca)",
+    "anio": 1942,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1940-1949_Madrid (centro urbano) 1943",
+    "title": "1943 - Ortofoto Madrid (centro urbano)",
+    "anio": 1943,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1940-1949_orto-1946-ed50",
+    "title": "1946 - Ortofoto 50cm",
+    "anio": 1946,
+    "activa": true
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1940-1949_Madrid (de Media Legua a Casa de Campo) 1948",
+    "title": "1948 - Ortofoto Madrid (de Media Legua a Casa de Campo)",
+    "anio": 1948,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1940-1949_El Escorial y San Lorenzo 1949",
+    "title": "1949 - Ortofoto El Escorial y San Lorenzo",
+    "anio": 1949,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_De Alcorcón a Las Rozas 1951",
+    "title": "1951 - Ortofoto De Alcorcón a Las Rozas",
+    "anio": 1951,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_1956-CT-50cm-mosaico",
+    "title": "1956 - Ortofoto 50cm",
+    "anio": 1956,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (Casa de Campo) y Pozuelo de Alarcón 1957",
+    "title": "1957 - Ortofoto Madrid (Casa de Campo) y Pozuelo de Alarcón",
+    "anio": 1957,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (Puente de Vallecas) 1957",
+    "title": "1957 - Ortofoto Madrid (Puente de Vallecas)",
+    "anio": 1957,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_San Lorenzo de El Escorial (Cuelgamuros) 1957",
+    "title": "1957 - Ortofoto San Lorenzo de El Escorial (Cuelgamuros)",
+    "anio": 1957,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Guadarrama-Los Molinos 1957",
+    "title": "1957 - Ortofoto Guadarrama-Los Molinos",
+    "anio": 1957,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Daganzo de Arriba1957.ecw",
+    "title": "1957 - Ortofoto Daganzo de Arriba",
+    "anio": 1957,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Ribatejada 1958",
+    "title": "1958 - Ortofoto Ribatejada",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Pozuelo de Alarcón 1958",
+    "title": "1958 - Ortofoto Pozuelo de Alarcón",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Quijorna 1958",
+    "title": "1958 - Ortofoto Quijorna",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_San Agustín de Guadalix 1958",
+    "title": "1958 - Ortofoto San Agustín de Guadalix",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (Vicálvaro) 1958",
+    "title": "1958 - Ortofoto Madrid (Vicálvaro)",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Robledo de Chavela 1958",
+    "title": "1958 - Ortofoto Robledo de Chavela",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Paracuellos de Jarama 1958",
+    "title": "1958 - Ortofoto Paracuellos de Jarama",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Mataelpino 1958",
+    "title": "1958 - Ortofoto Mataelpino",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Manzanares el Real 1958",
+    "title": "1958 - Ortofoto Manzanares el Real",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Majadahonda y Las Rozas 1958",
+    "title": "1958 - Ortofoto Majadahonda y Las Rozas",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Morata de Tajuña 1958",
+    "title": "1958 - Ortofoto Morata de Tajuña",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Moralzarzal 1958",
+    "title": "1958 - Ortofoto Moralzarzal",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Miraflores de la Sierra 1958",
+    "title": "1958 - Ortofoto Miraflores de la Sierra",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Villalbilla 1958",
+    "title": "1958 - Ortofoto Villalbilla",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Valdetorres de Jarama 1958",
+    "title": "1958 - Ortofoto Valdetorres de Jarama",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Valdeavero 1958",
+    "title": "1958 - Ortofoto Valdeavero",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Valdeolmos 1958",
+    "title": "1958 - Ortofoto Valdeolmos",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Villanueva del Pardillo 1958",
+    "title": "1958 - Ortofoto Villanueva del Pardillo",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Villanueva de la Cañada 1958",
+    "title": "1958 - Ortofoto Villanueva de la Cañada",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Zarzalejo 1958",
+    "title": "1958 - Ortofoto Zarzalejo",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Santa María de la Alameda 1958",
+    "title": "1958 - Ortofoto Santa María de la Alameda",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_San Sebastián de los Reyes 1958",
+    "title": "1958 - Ortofoto San Sebastián de los Reyes",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_San Lorenzo de El Escorial 1958",
+    "title": "1958 - Ortofoto San Lorenzo de El Escorial",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Talamanca de Jarama 1958",
+    "title": "1958 - Ortofoto Talamanca de Jarama",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Soto del Real 1958",
+    "title": "1958 - Ortofoto Soto del Real",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Sevilla la Nueva 1958",
+    "title": "1958 - Ortofoto Sevilla la Nueva",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Bustarviejo 1958",
+    "title": "1958 - Ortofoto Bustarviejo",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Brunete 1958",
+    "title": "1958 - Ortofoto Brunete",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Becerril de la Sierra 1958",
+    "title": "1958 - Ortofoto Becerril de la Sierra",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Cobeña 1958",
+    "title": "1958 - Ortofoto Cobeña",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Cerceda 1958",
+    "title": "1958 - Ortofoto Cerceda",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Canencia 1958",
+    "title": "1958 - Ortofoto Canencia",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Alalpardo 1958",
+    "title": "1958 - Ortofoto Alalpardo",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Ajalvir 1958",
+    "title": "1958 - Ortofoto Ajalvir",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Guadarrama 1958",
+    "title": "1958 - Ortofoto Guadarrama",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Alpedrete y Collado Villalba 1958",
+    "title": "1958 - Ortofoto Alpedrete y Collado Villalba",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Alpedrete 1958",
+    "title": "1958 - Ortofoto Alpedrete",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Algete 1958",
+    "title": "1958 - Ortofoto Algete",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Collado Mediano 1958",
+    "title": "1958 - Ortofoto Collado Mediano",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Las Rozas de Madrid 1958",
+    "title": "1958 - Ortofoto Las Rozas de Madrid",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_La Cabrera 1958",
+    "title": "1958 - Ortofoto La Cabrera",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Hoyo de Manzanares 1958",
+    "title": "1958 - Ortofoto Hoyo de Manzanares",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (Ciudad Lineal-Salamanca) 1958",
+    "title": "1958 - Ortofoto Madrid (Ciudad Lineal-Salamanca)",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Lozoyuela 1958",
+    "title": "1958 - Ortofoto Lozoyuela",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Los Molinos 1958",
+    "title": "1958 - Ortofoto Los Molinos",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Fuente el Saz de Jarama 1958",
+    "title": "1958 - Ortofoto Fuente el Saz de Jarama",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_El Boalo 1958",
+    "title": "1958 - Ortofoto El Boalo",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Collado Villalba 1958",
+    "title": "1958 - Ortofoto Collado Villalba",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Guadarrama (Sanatorio Tablada) 1958",
+    "title": "1958 - Ortofoto Guadarrama (Sanatorio Tablada)",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Guadalix de la Sierra 1958",
+    "title": "1958 - Ortofoto Guadalix de la Sierra",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Galapagar 1958",
+    "title": "1958 - Ortofoto Galapagar",
+    "anio": 1958,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (ejes castellana Alcalá y Rosales) 1959",
+    "title": "1959 - Ortofoto Madrid (ejes Castellana, Alcalá, Rosales)",
+    "anio": 1959,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (Retiro) 1959",
+    "title": "1959 - Ortofoto Madrid (Retiro)",
+    "anio": 1959,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid y Pozuelo (Línea Alta Tensión de Iberduero) 1959",
+    "title": "1959 - Ortofoto Madrid y Pozuelo (Línea Alta Tensión de Iberduero)",
+    "anio": 1959,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (de Chamberí a Moratalaz) 1959",
+    "title": "1959 - Ortofoto Madrid (de Chamberí a Moratalaz)",
+    "anio": 1959,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (de Quintana a Vicálvaro) 1959",
+    "title": "1959 - Ortofoto Madrid (de Quintana a Vicálvaro)",
+    "anio": 1959,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (Moratalaz) 1959",
+    "title": "1959 - Ortofoto Madrid (Moratalaz)",
+    "anio": 1959,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (de Barajas a Moratalaz) 1959",
+    "title": "1959 - Ortofoto Madrid (de Barajas a Moratalaz)",
+    "anio": 1959,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1950-1959_Madrid (Aeropuerto de Barajas) 1959",
+    "title": "1959 - Ortofoto Madrid (Aeropuerto de Barajas)",
+    "anio": 1959,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1960-Madrid-Carretera-de-la-Coruña",
+    "title": "1960 - Ortofoto Crta La Coruña 20cm",
+    "anio": 1960,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (de Retiro a Rivas-Vaciamadrid) 1961",
+    "title": "1961 - Ortofoto Madrid (de Retiro a Rivas-Vaciamadrid)",
+    "anio": 1961,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1961-Robledo-de-Chavela",
+    "title": "1961 - Ortofoto Robledo de Chavela 25cm",
+    "anio": 1961,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_orto-fusion-1961-1967-mapa-1976-1983-ed50",
+    "title": "1961-67 Ortofoto 25cm",
+    "anio": 1961,
+    "activa": true
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Aranjuez (vegas del Tajo y Jarama) 1961",
+    "title": "1961 - Ortofoto Aranjuez (vegas del Tajo y Jarama)",
+    "anio": 1961,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Embalse de San Juan",
+    "title": "1961 - Ortofoto Embalse de San Juan",
+    "anio": 1961,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Hortaleza) 1962",
+    "title": "1962 - Ortofoto Madrid (Hortaleza)",
+    "anio": 1962,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Hispanoamérica) 1962",
+    "title": "1962 - Ortofoto Madrid (Hispanoamérica)",
+    "anio": 1962,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_De Madrid (Centro) a Rivas 1962",
+    "title": "1962 - Ortofoto De Madrid (Centro) a Rivas",
+    "anio": 1962,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (de Chamartín a Vicálvaro) 1962",
+    "title": "1962 - Ortofoto Madrid (de Chamartín a Vicálvaro)",
+    "anio": 1962,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Getafe (gasolinera Los Ángeles) 1963",
+    "title": "1963 - Ortofoto Getafe (gasolinera Los Ángeles)",
+    "anio": 1963,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Villaverde-polígonos industriales) 1963",
+    "title": "1963 - Ortofoto Madrid (Villaverde-polígonos industriales)",
+    "anio": 1963,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_San Sebastian de los Reyes (La Pesadilla) 1963",
+    "title": "1963 - Ortofoto San Sebastian de los Reyes (La Pesadilla)",
+    "anio": 1963,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_De Cotos a Navacerrada 1963",
+    "title": "1963 - Ortofoto De Cotos a Navacerrada",
+    "anio": 1963,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Carrerera de La Coruña 1963",
+    "title": "1963 - Ortofoto Carrerera de La Coruña",
+    "anio": 1963,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Embalse de El Burguillo 1963",
+    "title": "1963 - Ortofoto Embalse de El Burguillo",
+    "anio": 1963,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_De El Escorial a San Martín de Valdeiglesias 1963",
+    "title": "1963 - Ortofoto De El Escorial a San Martín de Valdeiglesias",
+    "anio": 1963,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Parla 1964",
+    "title": "1964 - Ortofoto Parla",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Río Jarama (desde Rivas) 1964",
+    "title": "1964 - Ortofoto Río Jarama (desde Rivas)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (de Manoteras a El Viso) 1964",
+    "title": "1964 - Ortofoto Madrid (de Manoteras a El Viso)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Majadahonda-Pozuelo (Monte El Pilar) 1964",
+    "title": "1964 - Ortofoto Majadahonda-Pozuelo (Monte El Pilar)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Villaverde (fábrica Barreiros) 1964",
+    "title": "1964 - Ortofoto Villaverde (fábrica Barreiros)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (prolongación de Príncipe de Vergara) 1964",
+    "title": "1964 - Ortofoto Madrid (prolongación de Príncipe de Vergara)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Villaverde-polígonos industriales) 1964 B",
+    "title": "1964 B - Ortofoto Madrid (Villaverde-polígonos industriales)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Ciudad Universitaria) 1964 B",
+    "title": "1964 B - Ortofoto Madrid (Ciudad Universitaria)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Ciudad Universitaria) 1964 A",
+    "title": "1964 A - Ortofoto Madrid (Ciudad Universitaria)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Villaverde-polígonos industriales) 1964 A",
+    "title": "1964 A - Ortofoto Madrid (Villaverde-polígonos industriales)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Chamartín-Ciudad Lineal) 1964",
+    "title": "1964 - Ortofoto Madrid (Chamartín-Ciudad Lineal)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_De Coslada a Madrid (Chamberí) 1964",
+    "title": "1964 - Ortofoto De Coslada a Madrid (Chamberí)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_De Madrid (Centro) a Rivas 1964",
+    "title": "1964 - Ortofoto De Madrid (Centro) a Rivas",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Collado Villalba y Galapagar 1964",
+    "title": "1964 - Ortofoto Collado Villalba y Galapagar",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Alcobendas (La Moraleja) 1964",
+    "title": "1964 - Ortofoto Alcobendas (La Moraleja)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Alcobendas-San Sebastián de los Reyes 1964",
+    "title": "1964 - Ortofoto Alcobendas-San Sebastián de los Reyes",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Aeropuerto de Barajas) 1964",
+    "title": "1964 - Ortofoto Madrid (Aeropuerto de Barajas)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Chamartín) 1964",
+    "title": "1964 - Ortofoto Madrid (Chamartín)",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Fuente el Saz y Valdetorres de Jarama 1964",
+    "title": "1964 - Ortofoto Fuente el Saz y Valdetorres de Jarama",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1964-El-Atazar",
+    "title": "1964 - Ortofoto El Atazar 25cm",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_El Escorial y San Lorenzo 1964",
+    "title": "1964 - Ortofoto El Escorial y San Lorenzo",
+    "anio": 1964,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Aranjuez 1965",
+    "title": "1965 - Ortofoto Aranjuez",
+    "anio": 1965,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Torrelodones 1965",
+    "title": "1965 - Ortofoto Torrelodones",
+    "anio": 1965,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Becerril de la Sierra 1965",
+    "title": "1965 - Ortofoto Becerril de la Sierra",
+    "anio": 1965,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Algete y San Agustín de Guadalix 1965",
+    "title": "1965 - Ortofoto Algete y San Agustín de Guadalix",
+    "anio": 1965,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Algete y San Sebastián de los Reyes 1965",
+    "title": "1965 - Ortofoto Algete y San Sebastián de los Reyes",
+    "anio": 1965,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_El Escorial y San Lorenzo 1966",
+    "title": "1966 - Ortofoto El Escorial y San Lorenzo",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1966-Palacio-Real-Aranjuez",
+    "title": "1966 - Ortofoto Palacio Real de Aranjuez 25cm",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Valdemorillo A 1966",
+    "title": "1966 - Ortofoto Valdemorillo A",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1966-Navalcarnero",
+    "title": "1966 - Ortofoto Navalcarnero y Villamanta 20cm",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Fuencarral) 1966",
+    "title": "1966 - Ortofoto Madrid (Fuencarral)",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1966-La Marañosa-1",
+    "title": "1966 - Ortofoto La Marañosa 20cm",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_El Escorial (Navalquejigo) 1966",
+    "title": "1966 - Ortofoto El Escorial (Navalquejigo)",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Villaviciosa de Odón 1966",
+    "title": "1966 - Ortofoto Villaviciosa de Odón",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Valdemorillo B 1966",
+    "title": "1966 - Ortofoto Valdemorillo B",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Villanueva de la Cañada 1966",
+    "title": "1966 - Ortofoto Villanueva de la Cañada",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Boadilla del Monte 1966",
+    "title": "1966 - Ortofoto Boadilla del Monte",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Coslada y San Fernando de Henares 1966",
+    "title": "1966 - Ortofoto Coslada y San Fernando de Henares",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Arroyomolinos y Móstoles 1966",
+    "title": "1966 - Ortofoto Arroyomolinos y Móstoles",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Aldea del Fresno y Chapinería 1966",
+    "title": "1966 - Ortofoto Aldea del Fresno y Chapinería",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1966-Ajalvir",
+    "title": "1966 - Ortofoto Ajalvir 20cm",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Ciudad Lineal y Chamartín) 1966",
+    "title": "1966 - Ortofoto Madrid (Ciudad Lineal y Chamartín)",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Barajas-embajada de Santo Domingo) 1966",
+    "title": "1966 - Ortofoto Madrid (Barajas-embajada de Santo Domingo)",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Las Rozas de Madrid (Las Matas) 1966",
+    "title": "1966 - Ortofoto Las Rozas de Madrid (Las Matas)",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1966-El-Escorial",
+    "title": "1966 - Ortofoto El Escorial 20cm",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1966-Loeches",
+    "title": "1966 - Ortofoto Loeches 20cm",
+    "anio": 1966,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1967-Ctra-Madrid-Valencia",
+    "title": "1967 - Ortofoto Carretera Madrid-Valencia 20cm",
+    "anio": 1967,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Colmenar del Arroyo (Valle del Sol) 1967",
+    "title": "1967 - Ortofoto Colmenar del Arroyo (Valle del Sol)",
+    "anio": 1967,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1967-Puerto-Navacerrada",
+    "title": "1967 - Ortofoto Puerto de Navacerrada 20cm",
+    "anio": 1967,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1968-Brea-de-Tajo",
+    "title": "1968 - Ortofoto Brea de Tajo 20cm",
+    "anio": 1968,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Madrid (Retiro-Moratalaz) 1968",
+    "title": "1968 - Ortofoto Madrid (Retiro-Moratalaz)",
+    "anio": 1968,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_1969-Parque-las-dos-Castillas",
+    "title": "1969 - Ortofoto Parque de las dos Castillas 25cm",
+    "anio": 1969,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_octubre-1969-Canales-de-Aranjuez",
+    "title": "1969 - Ortofoto Canales de Aranjuez 20cm",
+    "anio": 1969,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_diciembre-1969-Canales-de-Aranjuez",
+    "title": "1969 - Ortofoto Canales de Aranjuez 25cm",
+    "anio": 1969,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1960-1969_Leganes-Madrid 1969",
+    "title": "1969 - Ortofoto Leganés-Madrid (La Fortuna, Prado Overa y Carabanchel)",
+    "anio": 1969,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Estremera",
+    "title": "1971 - Ortofoto Estremera 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Los-Hueros",
+    "title": "1971 - Ortofoto Los Hueros (Villalbilla) 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Nuevo-baztan-y-Olmeda-de-las-Fuentes",
+    "title": "1971 - Ortofoto Nuevo Baztán y  Olmeda de las Fuentes 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Corpa",
+    "title": "1971 - Ortofoto Corpa y Villalbilla 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1972-Monte-Olimpo",
+    "title": "1971 - Ortofoto Monte  Olimpo (Rascafría) 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Ambite",
+    "title": "1971 - Ortofoto Ambite 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Anchuelo",
+    "title": "1971 - Ortofoto Anchuelo 25cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Parque-dos-Castillas",
+    "title": "1971 - Ortofoto Parque de las dos Castillas (Ribatejada) 25cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Villalbilla",
+    "title": "1971 - Ortofoto  Villalbilla y Corpa 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Villanueva-de-Perales",
+    "title": "1971 - Ortofoto Villanueva de Perales, Villamantilla y Villamanta 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Villar-del-Olmo",
+    "title": "1971 - Ortofoto Villar del  Olmo 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Pezuela-de-las-torres",
+    "title": "1971 - Ortofoto Pezuela de las Torres 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Valdeverde-de-Alcala",
+    "title": "1971 - Ortofoto  Valdeverde de Alcalá, Villalbilla y Corpa 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1971-Valdilecha",
+    "title": "1971 - Ortofoto Valdilecha 20cm",
+    "anio": 1971,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1972-Navalagamella",
+    "title": "1972 - Ortofoto Navalagamella, Villanueva de Perales y Villamantilla 20cm",
+    "anio": 1972,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_1972-CT-30cm-bn-mosaico-CM-CHenares.tif",
+    "title": "1972 - Ortofoto de la Comunidad de Madrid y Corredor del Henares 30cm",
+    "anio": 1972,
+    "activa": true
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1970-1979_orto-1975-ed50",
+    "title": "1975 - Ortofoto 50cm",
+    "anio": 1975,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1980-1989_Orto-MD80.ecw",
+    "title": "1980 - Ortofoto 36cm",
+    "anio": 1980,
+    "activa": true
+  },
+  {
+    "identifier": "topograficosHistoricos_orto-mosaico-2m-1984-ed50",
+    "title": "1984 - Topográfico Núcleos Población 1:2.000",
+    "anio": 1984,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1980-1989_mosaico-orto-84-16-cm",
+    "title": "1984 - Ortofoto Vuelos parciales 16cm",
+    "anio": 1984,
+    "activa": false
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1990-1999_orto-1991-ed50",
+    "title": "1991 - Ortofoto 50cm",
+    "anio": 1991,
+    "activa": true
+  },
+  {
+    "identifier": "fotosAereasHistoricas_1990-1999_orto-mosaico-1999-ed50",
+    "title": "1999 - Ortofoto 50cm",
+    "anio": 1999,
+    "activa": true
+  },
+  {
+    "identifier": "fotosAereasHistoricas_2000-2009_orto-2001-ed50",
+    "title": "2001 - Ortofoto 30cm",
+    "anio": 2001,
+    "activa": true
+  },
+  {
+    "identifier": "fotosAereasHistoricas_2000-2009_orto-mosaico-madrid-2003",
+    "title": "2003 - Ortofoto 20cm",
+    "anio": 2003,
+    "activa": true
+  }
+]

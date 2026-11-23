@@ -1,0 +1,529 @@
+{
+ "type": "FeatureCollection",
+ "name": "recintos_madrid_aprox",
+ "metadata": {
+  "aviso": "Recreación APROXIMADA de elaboración propia (trazado orientativo, no arqueológico) a partir de bibliografía divulgativa: Gea Ortigas y Castellanos Oñate (2008), Malalana Ureña, guía 'Ruta arqueológica Madrid medieval' de la Comunidad de Madrid. Coordenadas WGS84 (EPSG:4326). Revisar y afinar sobre los planos antes de publicar."
+ },
+ "features": [
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "recinto",
+    "fase": 1,
+    "nombre": "Almudayna de Mayrit (s. IX)",
+    "descripcion": "Recinto emiral fundado por Muhammad I (852-886)"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -3.7156,
+       40.4172
+      ],
+      [
+       -3.7134,
+       40.417
+      ],
+      [
+       -3.713,
+       40.4155
+      ],
+      [
+       -3.7136,
+       40.4146
+      ],
+      [
+       -3.715,
+       40.4143
+      ],
+      [
+       -3.7158,
+       40.4152
+      ],
+      [
+       -3.7156,
+       40.4172
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "recinto",
+    "fase": 2,
+    "nombre": "Muralla cristiana (s. XII)",
+    "descripcion": "Recinto levantado tras la conquista castellana (1085)"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -3.7168,
+       40.4175
+      ],
+      [
+       -3.7165,
+       40.419
+      ],
+      [
+       -3.7135,
+       40.4196
+      ],
+      [
+       -3.71,
+       40.4178
+      ],
+      [
+       -3.7092,
+       40.4165
+      ],
+      [
+       -3.7088,
+       40.4157
+      ],
+      [
+       -3.7079,
+       40.4148
+      ],
+      [
+       -3.7083,
+       40.4135
+      ],
+      [
+       -3.7095,
+       40.4123
+      ],
+      [
+       -3.7108,
+       40.4113
+      ],
+      [
+       -3.7128,
+       40.4115
+      ],
+      [
+       -3.714,
+       40.4122
+      ],
+      [
+       -3.7156,
+       40.4136
+      ],
+      [
+       -3.7165,
+       40.415
+      ],
+      [
+       -3.7168,
+       40.4175
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "recinto",
+    "fase": 3,
+    "nombre": "Cerca del arrabal (s. XV)",
+    "descripcion": "Cerca que engloba los arrabales crecidos fuera de la muralla"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -3.7168,
+       40.4175
+      ],
+      [
+       -3.7165,
+       40.419
+      ],
+      [
+       -3.7135,
+       40.4198
+      ],
+      [
+       -3.7105,
+       40.4192
+      ],
+      [
+       -3.7075,
+       40.4178
+      ],
+      [
+       -3.7036,
+       40.417
+      ],
+      [
+       -3.7036,
+       40.415
+      ],
+      [
+       -3.7038,
+       40.4143
+      ],
+      [
+       -3.7065,
+       40.4133
+      ],
+      [
+       -3.7085,
+       40.4115
+      ],
+      [
+       -3.71,
+       40.4108
+      ],
+      [
+       -3.711,
+       40.411
+      ],
+      [
+       -3.7128,
+       40.4115
+      ],
+      [
+       -3.714,
+       40.4122
+      ],
+      [
+       -3.7156,
+       40.4136
+      ],
+      [
+       -3.7165,
+       40.415
+      ],
+      [
+       -3.7168,
+       40.4175
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "recinto",
+    "fase": 4,
+    "nombre": "Cerca de Felipe II (1566)",
+    "descripcion": "Cerca fiscal de la nueva capital de la Monarquía"
+   },
+   "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+     [
+      [
+       -3.7172,
+       40.418
+      ],
+      [
+       -3.7168,
+       40.4195
+      ],
+      [
+       -3.713,
+       40.4215
+      ],
+      [
+       -3.7083,
+       40.4208
+      ],
+      [
+       -3.7045,
+       40.4205
+      ],
+      [
+       -3.7015,
+       40.42
+      ],
+      [
+       -3.6995,
+       40.4182
+      ],
+      [
+       -3.6985,
+       40.416
+      ],
+      [
+       -3.6985,
+       40.4125
+      ],
+      [
+       -3.704,
+       40.41
+      ],
+      [
+       -3.7088,
+       40.4095
+      ],
+      [
+       -3.7125,
+       40.4105
+      ],
+      [
+       -3.716,
+       40.4125
+      ],
+      [
+       -3.7168,
+       40.415
+      ],
+      [
+       -3.7172,
+       40.418
+      ]
+     ]
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "hito",
+    "fase": 1,
+    "nombre": "Alcázar (al-Mudayna)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7145,
+     40.417
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 1,
+    "nombre": "Puerta de la Vega"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7155,
+     40.414
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 1,
+    "nombre": "Arco de Santa María"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7127,
+     40.4152
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 1,
+    "nombre": "Puerta de la Sagra"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.715,
+     40.4177
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 2,
+    "nombre": "Puerta de Valnadú"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.71,
+     40.4178
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 2,
+    "nombre": "Puerta de Guadalajara"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7088,
+     40.4157
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 2,
+    "nombre": "Puerta Cerrada"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7083,
+     40.4135
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 2,
+    "nombre": "Puerta de Moros"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7108,
+     40.4113
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 3,
+    "nombre": "Puerta del Sol"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7036,
+     40.4169
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 3,
+    "nombre": "Puerta de Toledo (antigua)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7088,
+     40.4114
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 4,
+    "nombre": "Puerta de Santo Domingo"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7083,
+     40.4208
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 4,
+    "nombre": "Red de San Luis"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7015,
+     40.42
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 4,
+    "nombre": "Puerta de Alcalá (1566)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.6995,
+     40.4182
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 4,
+    "nombre": "Puerta de Antón Martín"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.6985,
+     40.4125
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 4,
+    "nombre": "Puerta de Toledo (1566)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7088,
+     40.4095
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "puerta",
+    "fase": 4,
+    "nombre": "Puerta de Segovia"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.716,
+     40.4125
+    ]
+   }
+  }
+ ]
+}
