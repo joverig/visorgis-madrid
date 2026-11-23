@@ -18,7 +18,7 @@ $olFicheros = [ordered]@{
 $cmCaps   = 'https://idem.comunidad.madrid/visor/release/vgcm/statics/capabilities/produccion/srvimagenes2_visorcartografia2.xml'
 $cmAnioMax = 2003   # desde 2004 la linea temporal usa el PNOA del IGN
 # Seleccion curada: las capas que tienen texto en www\js\capas.js (textosCM). Solo esas van al XML.
-$seleccion = @([regex]::Matches((Get-Content (Join-Path $www 'js\capas.js') -Raw -Encoding UTF8), "'(fotosAereasHistoricas_[^']+)'\s*:\s*\{") | ForEach-Object { $_.Groups[1].Value })
+$seleccion = @([regex]::Matches((Get-Content (Join-Path $www 'js\capas.js') -Raw -Encoding UTF8), "'(fotosAereas[^']+)'\s*:\s*\{") | ForEach-Object { $_.Groups[1].Value })
 $utf8 = New-Object System.Text.UTF8Encoding($false)   # UTF-8 sin BOM
 
 function Bajar([string]$url) {
@@ -65,7 +65,9 @@ try {
         $id = PrimerTexto $txt 'Identifier'
         $titulo = PrimerTexto $txt 'Title'
         $anio = ExtraerAnio $titulo $id
-        if (-not $id -or -not $anio -or $anio -gt $cmAnioMax) { continue }
+        $elegida = $seleccion -contains $id
+        if (-not $id -or -not $anio) { continue }
+        if ($anio -gt $cmAnioMax -and -not $elegida) { continue }   # posteriores a 2003: solo las elegidas
         if ("$id $titulo" -match '(?i)IRG|infr|falso|NDVI') { continue }       # infrarrojos fuera
         if ("$id $titulo" -notmatch '(?i)foto|orto|vuelo|aere') { continue }   # solo imagenes
         $activa = ($seleccion.Count -eq 0) -or ($seleccion -contains $id)

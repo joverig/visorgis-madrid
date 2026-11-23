@@ -31,8 +31,8 @@
   });
 
   // Recreaciones de elaboración propia (vector) para antes del primer plano conservado (1622)
-  const RECINTOS = 'datos_propios/recintos_madrid.geojson?v=202611230828';
-  const ATR_REC = 'Recreación aproximada de elaboración propia a partir de bibliografía (Gea Ortigas, Malalana, Comunidad de Madrid). Trazado orientativo, no arqueológico.';
+  const RECINTOS = 'datos_propios/recintos_madrid.geojson?v=202611230835';
+  const ATR_REC = 'Recreación aproximada de elaboración propia a partir de bibliografía (Gea Ortigas, Malalana, Comunidad de Madrid). Trazado orientativo, no arqueológico. Término municipal: © OpenStreetMap contributors (ODbL).';
   const recreacion = (id, anio, etiqueta, titulo, fase, descripcion) => ({ // fase: solo orden
     id, anio, etiqueta, titulo, tipo: 'recreacion', descripcion,
     fuente: { type: 'vacia' }, // lo dibuja la capa de perímetros (VISOR_CONFIG.perimetros)
@@ -47,7 +47,7 @@
       'En el mapa: la T4 al este de Barajas, la herida de la M-30 junto al río y las grúas en la Castellana norte.',
     ],
     2009: [
-      'Madrid tras el estallido de la burbuja inmobiliaria (2008). Las Cuatro Torres ya dominan el skyline norte sobre la antigua Ciudad Deportiva del Real Madrid, la Terminal 4 de Barajas lleva tres años en servicio y el soterramiento de la M-30 ha terminado: el tráfico circula bajo tierra y sobre él se está construyendo Madrid Río.',
+      'Primer vuelo tras el estallido de la burbuja inmobiliaria. Sobre la M-30 soterrada avanzan las obras de Madrid Río y la construcción se frena en seco: se acabaron las grúas en los nuevos barrios.',
       'Muchas promociones de los PAU (Sanchinarro, Las Tablas, Montecarmelo, Ensanche de Vallecas) se quedan a medio hacer y los ensanches del sureste se paralizan antes de empezar. Madrid acumula una de las deudas municipales más altas de Europa por las grandes obras de la década, y la ciudad pierde la candidatura olímpica de 2016.',
       'En el mapa: compara los PAU con 2006 y fíjate en las parcelas que siguen vacías; aparecerán así durante años.',
     ],
@@ -71,20 +71,15 @@
       'Se aprueba definitivamente Madrid Nuevo Norte, la gran operación sobre las vías de Chamartín, y siguen creciendo los nuevos barrios del sureste.',
       'En el mapa: aparcamientos y plataformas de Barajas con aviones parados, y la playa de vías de Chamartín.',
     ],
-    2022: [
-      'Tras Filomena (enero de 2021), la mayor nevada en Madrid en medio siglo, que tumbó cientos de miles de árboles, y tras la pandemia, la ciudad recupera su ritmo. Se inaugura la reforma de la Puerta del Sol y avanzan las obras del nuevo Bernabéu y de la Plaza de España.',
-      'Continúa la urbanización de Los Berrocales y Los Ahijones y el crecimiento de Valdebebas; el área metropolitana supera los 6,7 millones de habitantes.',
-      'En el mapa: el Bernabéu en obras en la Castellana y las nuevas manzanas del sureste.',
-    ],
-    2024: [
-      'Una de las ortofotos más recientes del PNOA. Madrid es una metrópoli de 3,4 millones de habitantes en la capital y casi 7 en la región, con un crecimiento empujado por la inmigración latinoamericana y por la llegada de empresas.',
-      'Las grandes transformaciones siguen siendo las de los bordes: ensanches del sureste, Madrid Nuevo Norte y los nuevos barrios metropolitanos. En el centro, la ciudad se debate entre turismo, vivienda y espacio público.',
-      'En el mapa: compara con 1956 o con el vuelo de 1975 para ver cuánto ha crecido la mancha urbana.',
+    2023: [
+      'Último vuelo del PNOA histórico sobre Madrid. La ciudad ha recuperado el pulso tras la pandemia: arrancan las obras de Madrid Nuevo Norte sobre las vías de Chamartín, el nuevo Bernabéu estrena su cubierta y los ensanches del sureste (Los Berrocales, Los Ahijones, Valdecarros) empiezan a llenarse de grúas.',
+      'Madrid recibe más inmigración que nunca, sobre todo latinoamericana, y la vivienda se convierte en el gran debate de la ciudad.',
+      'En el mapa: las grúas del sureste y el Bernabéu reformado en la Castellana.',
     ],
   };
-  // Solo años del PNOA histórico con imagen sobre Madrid (2004, 2008, 2010, 2012, 2022 y 2024 no la tienen);
+  // Solo años del PNOA histórico con imagen sobre Madrid (comprobado con 2_Descargar_y_comprobar.bat);
   // lo más reciente lo da el paso 'Hoy' (PNOA de máxima actualidad)
-  const pnoaAnios = [2006, 2009, 2011, 2014, 2017, 2020];
+  const pnoaAnios = [2006, 2009, 2011, 2014, 2017, 2020, 2023];
 
   /* ---------- Ortofotos de la Comunidad de Madrid (solo las seleccionadas en data/capas_cm.json) ---------- */
   const textosCM = {
@@ -160,6 +155,46 @@
         'En el mapa: la Ciudad Deportiva y la M-30 junto al Manzanares; compáralas con 2008.',
       ],
     },
+    'fotosAereasHistoricas_2000-2009_orto-mosaico-2004-geomadrid-40cm-v2': {
+      etiqueta: '2004', titulo: 'Ortofoto de 2004',
+      descripcion: [
+        'Madrid en lo más alto del ciclo inmobiliario: la capital roza los 3,1 millones de habitantes y la región crece a un ritmo que no se veía desde los años sesenta.',
+        'Es el momento de los PAU del Plan General de 1997: Sanchinarro, Las Tablas, Montecarmelo, Arroyo del Fresno, Carabanchel o Ensanche de Vallecas aparecen como enormes cuadrículas de calles trazadas y manzanas a medio construir. Este año arrancan las obras de soterramiento de la M-30 y de las Cuatro Torres.',
+        'En el mapa: las cuadrículas de tierra con calles asfaltadas pero sin edificios en los bordes norte y sureste.',
+      ],
+    },
+    'fotosAereasHistoricas_2000-2009_orto-mosaico-fc5-2008-etrs89-v2': {
+      etiqueta: '2008', titulo: 'Ortofoto de 2008',
+      descripcion: [
+        'El final del boom. Las Cuatro Torres acaban de terminarse sobre la antigua Ciudad Deportiva del Real Madrid, la Terminal 4 de Barajas lleva dos años en servicio y la M-30 ya circula bajo tierra junto al río.',
+        'En septiembre quiebra Lehman Brothers y estalla la burbuja: muchas promociones de los PAU se quedan a medio hacer. Madrid acumula una de las deudas municipales más altas de Europa por las grandes obras de la década.',
+        'En el mapa: las Cuatro Torres en la Castellana norte y los PAU con manzanas todavía vacías.',
+      ],
+    },
+    'fotosAereas_orto-madrid-2013-etrs89': {
+      etiqueta: '2013', titulo: 'Ortofoto de Madrid capital (9 cm)',
+      descripcion: [
+        'Una de las fotos aéreas más detalladas de la capital: cada píxel mide 9 cm, así que se distinguen coches, bancos y hasta pasos de cebra. Acércate todo lo que quieras.',
+        'Madrid toca fondo en la crisis: paro récord, desahucios y obras paradas. En septiembre la ciudad pierde su tercera candidatura olímpica seguida (2020). Madrid Río, inaugurado dos años antes, es el gran parque nuevo de la ciudad.',
+        'En el mapa: Ensanche de Vallecas y Valdebebas con calles trazadas y muchas parcelas vacías.',
+      ],
+    },
+    'fotosAereas_orto-TM-Madrid-2019-10cm-fc10': {
+      etiqueta: '2019', titulo: 'Ortofoto de Madrid capital (10 cm)',
+      descripcion: [
+        'Madrid en plena recuperación. Desde finales de 2018 funciona Madrid Central, la zona de bajas emisiones del centro, y la ciudad discute cómo convivir con el turismo y los pisos turísticos.',
+        'El estadio Metropolitano (2017) ha transformado el este, se tramita Madrid Nuevo Norte sobre las vías de Chamartín y la quinta torre de la Castellana, Caleido, está a punto de terminarse.',
+        'En el mapa: el Metropolitano en San Blas-Canillejas y Valdebebas ya lleno de bloques.',
+      ],
+    },
+    'fotosAereas_orto-mosaico-20cm-rgb-2022': {
+      etiqueta: '2022', titulo: 'Ortofoto de 2022',
+      descripcion: [
+        'Tras la pandemia y tras Filomena (enero de 2021), la mayor nevada en medio siglo, que tumbó cientos de miles de árboles, la ciudad recupera su ritmo. Se ha reformado la Plaza de España y avanzan las obras del nuevo Bernabéu y de la Puerta del Sol.',
+        'Continúa la urbanización de Los Berrocales y Los Ahijones y el crecimiento de Valdebebas; el área metropolitana supera los 6,7 millones de habitantes.',
+        'En el mapa: el Bernabéu en obras en la Castellana y las nuevas manzanas del sureste.',
+      ],
+    },
   };
 
   window.VISOR_CONFIG = {
@@ -187,6 +222,12 @@
     ],
 
     capas: [
+      recreacion('antes', 500, 'Antes', 'Antes de Madrid: el valle del Manzanares', 0, [
+        'Mucho antes de que existiera la ciudad, el valle del Manzanares ya estaba habitado. Sus terrazas fluviales forman uno de los conjuntos paleolíticos más importantes de Europa: durante cientos de miles de años, grupos de cazadores tallaron bifaces de sílex y cuarcita junto al río, donde abundaban elefantes, caballos y uros. En el yacimiento de San Isidro, en Carabanchel, se reconocieron en 1862 por primera vez en España herramientas del Paleolítico antiguo.',
+        'Después vinieron los poblados de la Edad del Bronce y del Hierro, el territorio de los carpetanos y la romanización. Los romanos dejaron villas agrícolas en Carabanchel, Villaverde, la Casa de Campo o El Pardo, en la órbita de la gran ciudad de la zona, Complutum (Alcalá de Henares). En época visigoda hubo pequeñas aldeas y necrópolis dispersas por la región.',
+        'Lo que no hubo, que se sepa, es una ciudad: no está probado que el cerro donde nacerá Mayrit tuviera un poblado estable antes del siglo IX. Las leyendas de una ciudad romana en el solar de Madrid o de un origen griego se difundieron siglos después para dar a la capital un pasado glorioso.',
+        'En el mapa: los puntos marrones señalan, de forma aproximada, algunos yacimientos del valle del Manzanares.',
+      ]),
       recreacion('mayrit', 870, 's. IX', 'Mayrit, la fortaleza andalusí', 1, [
         'Hacia mediados del siglo IX (entre 852 y 886) el emir de Córdoba Muhammad I manda levantar una fortaleza sobre el cerro que domina el Manzanares, donde hoy están el Palacio Real y la catedral de la Almudena. Al-Ándalus vive su época emiral y la frontera con los reinos cristianos está en el Duero; Mayrit es una pieza de la Marca Media, la red de plazas fuertes que protege Toledo de las incursiones del norte.',
         'El nombre viene probablemente del árabe "mayra" (cauce, madre de agua) unido al sufijo romance "-it": el lugar destacaba por sus arroyos y su agua subterránea, que los andalusíes aprovecharon con viajes de agua (qanats). Dentro de la muralla había una pequeña población de soldados y campesinos, una mezquita y la residencia del gobernador; fuera, huertas en la vega y caminos hacia Toledo y Talamanca.',

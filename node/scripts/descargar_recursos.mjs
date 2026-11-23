@@ -64,7 +64,8 @@ export function procesarCapabilities(xml, seleccion = []) {
     const identifier = primerTexto(b, 'Identifier');
     const title = primerTexto(b, 'Title');
     const anio = extraerAnio(title, identifier);
-    if (!identifier || !anio || anio > CM_ANIO_MAX) continue;
+    if (!identifier || !anio) continue;
+    if (anio > CM_ANIO_MAX && !seleccion.includes(identifier)) continue; // posteriores a 2003: solo las elegidas
     if (/IRG|infr|falso|NDVI/i.test(identifier + ' ' + title)) continue; // infrarrojos fuera
     if (!/foto|orto|vuelo|aere/i.test(identifier + ' ' + title)) continue; // solo imágenes
     const activa = !seleccion.length || seleccion.includes(identifier);
@@ -86,7 +87,7 @@ async function descargarCM() {
   console.log('Comunidad de Madrid · ortofotos históricas');
   const xml = await bajar(CM_CAPS);
   const js = await readFile(join(RAIZ, 'js', 'capas.js'), 'utf8').catch(() => '');
-  const seleccion = [...js.matchAll(/'(fotosAereasHistoricas_[^']+)'\s*:\s*\{/g)].map((m) => m[1]);
+  const seleccion = [...js.matchAll(/'(fotosAereas[^']+)'\s*:\s*\{/g)].map((m) => m[1]);
   const { capas, recortado, total } = procesarCapabilities(xml, seleccion);
   const activas = capas.filter((c) => c.activa);
   console.log(`  ${total} capas en el servicio, ${capas.length} históricas; ${activas.length} en la línea temporal (textosCM):`);
