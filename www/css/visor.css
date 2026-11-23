@@ -202,3 +202,5 @@ html, body { height: 100%; height: 100dvh; }
   .cabecera { right: calc(46% + 10px); }
   .cabecera h1 { display: none; }
 }
+
+.botones button svg { display: block; margin: auto; }
