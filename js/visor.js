@@ -199,7 +199,7 @@
     capas.forEach((c, k) => {
       if (c.fuente.type === 'vacia') {
         // Pasos de recreación: no tienen imagen propia, lo dibuja la capa de perímetros
-        c.layer = new ol.layer.Vector({ source: new ol.source.Vector(), visible: false, zIndex: 10 });
+        c.layer = new ol.layer.Tile({ source: new ol.source.XYZ({ tileUrlFunction: () => undefined }), visible: false, zIndex: 10 });
       } else {
         const src = crearSource(c);
         engancharCarga(src);
@@ -301,7 +301,9 @@
     if (capaPerimetros) capaPerimetros.changed();
     $('#leyenda-rec').hidden = !$('#chk-perimetros').checked;
     $('#leyenda-yac').hidden = c.anio >= 870;
-    if (c.tipo === 'recreacion' && map) encuadrarRecinto(c, true);
+    // Cada cambio de paso encuadra el límite vigente de esa época
+    if (map && !estado.respetarVista && estado.idxEncuadrado !== idx) encuadrarRecinto(c, false, true);
+    estado.idxEncuadrado = idx;
     const d = $('#descripcion');
     d.innerHTML = '';
     [].concat(c.descripcion || []).forEach((txt) => {
@@ -476,25 +478,28 @@
     construirTimeline();
     enlazarControles();
     const idx = leerHash();
+    estado.respetarVista = idx >= 0; // con enlace compartido, el primer paso no mueve el mapa
     aplicar(idx >= 0 ? idx : 0); // sin enlace compartido: empieza por el primer paso
     if (idx < 0) encuadrarInicio();
+    estado.respetarVista = false;
   }
 
   /* Sin enlace compartido: encuadra el recinto del primer paso (Mayrit), dejando libre
      lo que tapan el panel y la cabecera */
   function encuadrarInicio() { encuadrarRecinto(capas[0], false); }
 
-  // Encuadra el recinto de un paso de recreación dejando libre lo que tapan panel y cabecera.
-  // Con soloSiHaceFalta, no mueve el mapa si el recinto ya se ve entero.
-  function encuadrarRecinto(c, soloSiHaceFalta) {
-    if (!c || c.tipo !== 'recreacion') return;
+  // Encuadra el límite vigente del paso (o sus yacimientos si no hay límite), dejando libre
+  // lo que tapan panel y cabecera. Con soloSiHaceFalta, no mueve el mapa si ya se ve entero.
+  function encuadrarRecinto(c, soloSiHaceFalta, animar) {
+    if (!c) return;
     const src = fuenteGeojson(C.perimetros);
     const encuadrar = () => {
       let geom;
-      const f = src.getFeatures().find((x) => x.get('tipo') === 'recinto' && x.get('desde') === c.anio);
+      const vigente = perimetroVigente(src, c.anio);
+      const f = src.getFeatures().find((x) => x.get('tipo') === 'recinto' && x.get('desde') === vigente);
       if (f) geom = f.getGeometry();
       else {
-        // Paso sin recinto (Antes de Madrid): encuadrar sus yacimientos
+        // Paso sin límite (Antes de Madrid): encuadrar sus yacimientos
         const ext = ol.extent.createEmpty();
         src.getFeatures().filter((x) => x.get('grupo') === c.id).forEach((x) => ol.extent.extend(ext, x.getGeometry().getExtent()));
         if (ol.extent.isEmpty(ext)) return;
@@ -502,19 +507,22 @@
       }
       const mapa = map.getTargetElement().getBoundingClientRect();
       const panel = document.querySelector('.panel').getBoundingClientRect();
+      const plegado = document.body.classList.contains('panel-plegado');
       const pad = esMovil()
         ? [70, 30, Math.max(40, mapa.bottom - panel.top + 30), 30]
-        : [80, Math.max(40, mapa.right - panel.left + 40), 50, 80];
+        : [80, plegado ? 80 : Math.max(40, mapa.right - panel.left + 40), 50, 80];
       if (soloSiHaceFalta) {
         const tam = map.getSize();
         const visible = view.calculateExtent([tam[0] - pad[1] - pad[3], tam[1] - pad[0] - pad[2]]);
         if (ol.extent.containsExtent(visible, geom.getExtent())) return;
       }
-      view.fit(geom, { padding: pad, maxZoom: 17.5, duration: soloSiHaceFalta ? 600 : 0 });
+      view.cancelAnimations();
+      view.fit(geom, { padding: pad, maxZoom: 17.5, duration: animar ? 700 : 0 });
     };
     if (src.getFeatures().length) encuadrar();
     else src.once('featuresloadend', encuadrar);
   }
+
 
 
   document.addEventListener('DOMContentLoaded', iniciar);
