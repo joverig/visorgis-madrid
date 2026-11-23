@@ -2,7 +2,7 @@
  "type": "FeatureCollection",
  "name": "recintos_madrid_aprox",
  "metadata": {
-  "aviso": "Recreación APROXIMADA de elaboración propia (trazados orientativos, no arqueológicos ni oficiales). Murallas y cercas a partir de bibliografía divulgativa (Gea Ortigas y Castellanos Oñate; Malalana Ureña; Comunidad de Madrid). Cerca de 1625 y Ensanche siguiendo las calles actuales que heredaron su trazado. El término municipal es un contorno PROVISIONAL a sustituir por el límite oficial (CNIG / datos.madrid.es). Propiedades: tipo (recinto|puerta|hito), desde, hasta (opcional), clase. EPSG:4326."
+  "aviso": "Recreación APROXIMADA de elaboración propia (trazados orientativos, no arqueológicos ni oficiales). Murallas y cercas a partir de bibliografía divulgativa (Gea Ortigas y Castellanos Oñate; Malalana Ureña; Comunidad de Madrid). Cerca de 1625 y Ensanche siguiendo las calles actuales que heredaron su trazado. El término municipal es un contorno PROVISIONAL a sustituir por el límite oficial (CNIG / datos.madrid.es). Propiedades: tipo (recinto|puerta|hito), desde, hasta (opcional), clase. EPSG:4326. Fechas de derribo de puertas aproximadas (la cerca se derriba desde 1868). 'conservada': puerta que sigue en pie y se rotula siempre."
  },
  "features": [
   {
@@ -628,7 +628,8 @@
    "properties": {
     "tipo": "puerta",
     "desde": 1625,
-    "nombre": "Puerta de Alcalá"
+    "nombre": "Puerta de Alcalá",
+    "conservada": true
    },
    "geometry": {
     "type": "Point",
@@ -659,7 +660,8 @@
    "properties": {
     "tipo": "puerta",
     "desde": 1625,
-    "nombre": "Puerta de Embajadores"
+    "nombre": "Puerta de Embajadores",
+    "hasta": 1868
    },
    "geometry": {
     "type": "Point",
@@ -674,7 +676,8 @@
    "properties": {
     "tipo": "puerta",
     "desde": 1625,
-    "nombre": "Puerta de Toledo"
+    "nombre": "Puerta de Toledo",
+    "conservada": true
    },
    "geometry": {
     "type": "Point",
@@ -689,7 +692,8 @@
    "properties": {
     "tipo": "puerta",
     "desde": 1625,
-    "nombre": "Puerta de Segovia (1625)"
+    "nombre": "Puerta de Segovia (1625)",
+    "hasta": 1868
    },
    "geometry": {
     "type": "Point",
@@ -704,7 +708,8 @@
    "properties": {
     "tipo": "puerta",
     "desde": 1625,
-    "nombre": "Puerta de San Vicente"
+    "nombre": "Puerta de San Vicente",
+    "hasta": 1890
    },
    "geometry": {
     "type": "Point",
@@ -719,7 +724,8 @@
    "properties": {
     "tipo": "puerta",
     "desde": 1625,
-    "nombre": "Puerta de Fuencarral (Bilbao)"
+    "nombre": "Puerta de Fuencarral (Bilbao)",
+    "hasta": 1868
    },
    "geometry": {
     "type": "Point",
@@ -734,7 +740,8 @@
    "properties": {
     "tipo": "puerta",
     "desde": 1625,
-    "nombre": "Puerta de Santa Bárbara"
+    "nombre": "Puerta de Santa Bárbara",
+    "hasta": 1868
    },
    "geometry": {
     "type": "Point",
@@ -1265,6 +1272,21 @@
     "coordinates": [
      -3.7205,
      40.402
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "properties": {
+    "tipo": "hito",
+    "desde": 1995,
+    "nombre": "Puerta de San Vicente (reconstruida)"
+   },
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -3.7186,
+     40.4213
     ]
    }
   }

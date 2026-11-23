@@ -4,7 +4,8 @@
  *   1. OpenLayers (lib/ol/ol.js y ol.css): así no dependes del CDN.
  *   2. Capabilities WMTS de la Comunidad de Madrid (2,5 MB): se recortan
  *      a las ortofotos históricas y se guardan en data/cm_capabilities.xml
- *      + data/capas_cm.json (lista editable: pon "activa": false para ocultar).
+ *      + data/capas_cm.json. Solo van a la línea temporal (y al XML) las capas
+ *      que tienen texto en js/capas.js → textosCM.
  *
  * Los mapas en sí (teselas WMS/WMTS) se siguen pidiendo a los servidores
  * oficiales del IGN y de la Comunidad.
@@ -12,7 +13,7 @@
  * Uso:  node scripts/descargar_recursos.mjs   (o  npm run setup)
  * Requiere Node 18+ (fetch nativo).
  */
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -55,7 +56,7 @@ function extraerAnio(title, id) {
   return i ? +i[i.length - 1].slice(1, 5) : null;
 }
 
-export function procesarCapabilities(xml) {
+export function procesarCapabilities(xml, seleccion = []) {
   const bloques = xml.match(/<Layer>[\s\S]*?<\/Layer>/g) || [];
   const capas = [];
   const guardados = [];
@@ -66,8 +67,9 @@ export function procesarCapabilities(xml) {
     if (!identifier || !anio || anio > CM_ANIO_MAX) continue;
     if (/IRG|infr|falso|NDVI/i.test(identifier + ' ' + title)) continue; // infrarrojos fuera
     if (!/foto|orto|vuelo|aere/i.test(identifier + ' ' + title)) continue; // solo imágenes
-    capas.push({ identifier, title, anio, activa: true });
-    guardados.push(b);
+    const activa = !seleccion.length || seleccion.includes(identifier);
+    capas.push({ identifier, title, anio, activa });
+    if (activa) guardados.push(b);
   }
   capas.sort((a, b) => a.anio - b.anio);
   // XML recortado: cabecera + capas elegidas + TileMatrixSets
@@ -83,9 +85,12 @@ export function procesarCapabilities(xml) {
 async function descargarCM() {
   console.log('Comunidad de Madrid · ortofotos históricas');
   const xml = await bajar(CM_CAPS);
-  const { capas, recortado, total } = procesarCapabilities(xml);
-  console.log(`  ${total} capas en el servicio, ${capas.length} históricas seleccionadas:`);
-  capas.forEach((c) => console.log(`    ${c.anio}  ${c.title}  [${c.identifier}]`));
+  const js = await readFile(join(RAIZ, 'js', 'capas.js'), 'utf8').catch(() => '');
+  const seleccion = [...js.matchAll(/'(fotosAereasHistoricas_[^']+)'\s*:\s*\{/g)].map((m) => m[1]);
+  const { capas, recortado, total } = procesarCapabilities(xml, seleccion);
+  const activas = capas.filter((c) => c.activa);
+  console.log(`  ${total} capas en el servicio, ${capas.length} históricas; ${activas.length} en la línea temporal (textosCM):`);
+  activas.forEach((c) => console.log(`    ${c.anio}  ${c.title}`));
   await guardar('data/cm_capabilities.xml', recortado);
   await guardar('data/capas_cm.json', JSON.stringify(capas, null, 2));
 }

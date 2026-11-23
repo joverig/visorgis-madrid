@@ -114,7 +114,8 @@
       }
       if (tipo === 'hito') return punto(feat.get('nombre'), 'hito', conTexto);
       const propia = feat.get('desde') === vigente;
-      return punto(feat.get('nombre'), propia ? 'propia' : 'anterior', conTexto && propia);
+      // Las puertas que siguen en pie (Alcalá, Toledo) se rotulan siempre
+      return punto(feat.get('nombre'), propia ? 'propia' : 'anterior', conTexto && (propia || !!feat.get('conservada')));
     };
   }
 

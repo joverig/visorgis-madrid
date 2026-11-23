@@ -34,6 +34,20 @@ Notas
   - Sin probar aun con teselas reales: lo primero es validar cada paso del slider (F12, pestana Red,
     peticiones GetMap/GetTile con error).
 
+Capa de limites, puertas e hitos
+  www\datos_propios\recintos_madrid.geojson (EPSG:4326). Cada elemento tiene tipo (recinto|puerta|hito),
+  desde y opcionalmente hasta; el visor pinta lo que existia en el ano que se esta viendo.
+  Recinto vigente en continuo, anteriores en discontinuo. Se edita en QGIS o a mano.
+  PENDIENTE: sustituir el termino municipal provisional (desde 1948) por el limite oficial.
+
+Ortofotos de la Comunidad en la linea temporal
+  Solo las que tienen texto en www\js\capas.js (textosCM). 1_Descargar_recursos.bat respeta esa
+  seleccion: para anadir una capa, poner su identificador y su texto en textosCM y volver a ejecutarlo.
+
+Cache del navegador
+  index.html carga css y js con ?v=AAAAMMDDhhmm. Al publicar cambios hay que subir ese numero
+  (y el de recintos_madrid.geojson en capas.js) para que los moviles no usen la version vieja.
+
 Publicacion (GitHub Pages)
   Repositorio: https://github.com/joverig/visorgis-madrid  (rama main = este proyecto)
   Web:         https://joverig.github.io/visorgis-madrid/  (rama gh-pages = copia de www\)

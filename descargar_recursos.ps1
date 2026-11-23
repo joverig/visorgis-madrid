@@ -1,7 +1,7 @@
 # Descarga a www\ lo que el visor puede tener en disco (equivale a "npm run setup", sin Node):
 #   1. OpenLayers 10.5.0 -> www\lib\ol\ol.js y ol.css (asi no depende del CDN)
 #   2. Capabilities WMTS de la Comunidad de Madrid, recortadas a las ortofotos historicas
-#      -> www\data\cm_capabilities.xml + www\data\capas_cm.json (editable: "activa": false para ocultar)
+#      -> www\data\cm_capabilities.xml + www\data\capas_cm.json (solo las capas con texto en js\capas.js -> textosCM)
 # Las teselas se siguen pidiendo en directo al IGN y a la Comunidad.
 # Uso: 1_Descargar_recursos.bat (rutas relativas a esta carpeta)
 
@@ -17,6 +17,8 @@ $olFicheros = [ordered]@{
 }
 $cmCaps   = 'https://idem.comunidad.madrid/visor/release/vgcm/statics/capabilities/produccion/srvimagenes2_visorcartografia2.xml'
 $cmAnioMax = 2003   # desde 2004 la linea temporal usa el PNOA del IGN
+# Seleccion curada: las capas que tienen texto en www\js\capas.js (textosCM). Solo esas van al XML.
+$seleccion = @([regex]::Matches((Get-Content (Join-Path $www 'js\capas.js') -Raw -Encoding UTF8), "'(fotosAereasHistoricas_[^']+)'\s*:\s*\{") | ForEach-Object { $_.Groups[1].Value })
 $utf8 = New-Object System.Text.UTF8Encoding($false)   # UTF-8 sin BOM
 
 function Bajar([string]$url) {
@@ -66,8 +68,9 @@ try {
         if (-not $id -or -not $anio -or $anio -gt $cmAnioMax) { continue }
         if ("$id $titulo" -match '(?i)IRG|infr|falso|NDVI') { continue }       # infrarrojos fuera
         if ("$id $titulo" -notmatch '(?i)foto|orto|vuelo|aere') { continue }   # solo imagenes
-        $capas += [pscustomobject][ordered]@{ identifier = $id; title = $titulo; anio = $anio; activa = $true }
-        $elegidos += $txt
+        $activa = ($seleccion.Count -eq 0) -or ($seleccion -contains $id)
+        $capas += [pscustomobject][ordered]@{ identifier = $id; title = $titulo; anio = $anio; activa = $activa }
+        if ($activa) { $elegidos += $txt }
     }
     $capas = @($capas | Sort-Object anio)
     # XML recortado: cabecera + capas elegidas + TileMatrixSets
@@ -78,8 +81,8 @@ try {
         $fin = $ult.Index + $ult.Length
         $recortado = $xml.Substring(0, $ini) + ($elegidos -join "`n") + $xml.Substring($fin)
     }
-    Write-Host "  $($bloques.Count) capas en el servicio, $($capas.Count) historicas seleccionadas:"
-    foreach ($c in $capas) { Write-Host "    $($c.anio)  $($c.title)  [$($c.identifier)]" }
+    Write-Host "  $($bloques.Count) capas en el servicio, $($capas.Count) historicas; $($elegidos.Count) en la linea temporal (textosCM de capas.js):"
+    foreach ($c in ($capas | Where-Object { $_.activa })) { Write-Host "    $($c.anio)  $($c.title)" }
     Guardar 'data\cm_capabilities.xml' $utf8.GetBytes($recortado)
     $json = ConvertTo-Json -InputObject $capas -Depth 3
     if ($capas.Count -eq 0) { $json = '[]' }
