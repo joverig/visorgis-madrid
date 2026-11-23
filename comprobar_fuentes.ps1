@@ -105,7 +105,7 @@ try {
 
 # ---------------------------------------------------------------- 4. Cobertura de los vuelos del IGN sobre el municipio
 # Rejilla de 5 x 5 celdas sobre el termino municipal; cada celda se pide aparte y se mira si viene en blanco.
-Write-Host '4. Cobertura de los vuelos del IGN sobre el municipio (rejilla 5x5)'
+Write-Host '4. Cobertura de los vuelos del IGN sobre el municipio (rejilla 5x5, tarda unos minutos: no cierres la ventana)'
 $vuelos = @('AMS_1956-1957','Interministerial_1973-1986','Nacional_1981-1986','OLISTAT') +
           @($probar | Where-Object { $_ -match '^PNOA(2006|2009|2011|2014|2017|2020|2023)$' })
 $x0 = -420700; $x1 = -399000; $y0 = 4910000; $y1 = 4937000   # aprox. -3.78/-3.58, 40.33/40.52
