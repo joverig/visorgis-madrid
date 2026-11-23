@@ -219,3 +219,4 @@ html, body { height: 100%; height: 100dvh; }
 .leyenda-rec .l-hito { width: 10px; height: 10px; margin: 0 6px; background: #f3d27a; border: 1.5px solid #1a1816; transform: rotate(45deg); }
 .leyenda-rec .l-yac { width: 11px; height: 11px; margin: 0 5.5px; border-radius: 50%; background: #b07a4f; border: 2px solid #f3e3cf; }
 .leyenda-rec .l-yac-item[hidden] { display: none; }
+.leyenda-rec .l-barrio { width: 10px; height: 10px; margin: 0 6px; border-radius: 50%; background: #7fc8b4; border: 1.5px solid #1a1816; }

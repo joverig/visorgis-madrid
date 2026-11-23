@@ -31,8 +31,8 @@
   });
 
   // Recreaciones de elaboración propia (vector) para antes del primer plano conservado (1622)
-  const RECINTOS = 'datos_propios/recintos_madrid.geojson?v=202611230903';
-  const ATR_REC = 'Recreación aproximada de elaboración propia a partir de bibliografía (Gea Ortigas, Malalana, Comunidad de Madrid). Trazado orientativo, no arqueológico. Término municipal: © OpenStreetMap contributors (ODbL).';
+  const RECINTOS = 'datos_propios/recintos_madrid.geojson?v=202611230907';
+  const ATR_REC = 'Recreación aproximada de elaboración propia a partir de bibliografía (Gea Ortigas, Malalana, Comunidad de Madrid). Trazado orientativo, no arqueológico. ';
   const recreacion = (id, anio, etiqueta, titulo, fase, descripcion) => ({ // fase: solo orden
     id, anio, etiqueta, titulo, tipo: 'recreacion', descripcion,
     fuente: { type: 'vacia' }, // lo dibuja la capa de perímetros (VISOR_CONFIG.perimetros)
@@ -311,7 +311,7 @@
       plano('parcelario4060', 1950, '1940-60', 'Plano parcelario 1940-1960', 'parcelarioMadrid', [
         'El Madrid de la posguerra y de la autarquía. Entre 1948 y 1954 la capital anexiona trece municipios (Chamartín de la Rosa, Carabanchel Alto y Bajo, Canillas, Canillejas, Hortaleza, Barajas, Fuencarral, El Pardo, Aravaca, Vallecas, Vicálvaro y Villaverde) y pasa de 68 a más de 600 km².',
         'El Plan Bidagor (1946) organiza el crecimiento, pero no puede con la llegada masiva de emigrantes: miles de chabolas rodean la ciudad y el régimen responde con poblados de absorción y poblados dirigidos. La Castellana se prolonga hacia el norte y aparecen los primeros rascacielos, como el Edificio España (1953).',
-        'En el mapa: el término municipal ampliado tras las anexiones.',
+        'En el mapa: la mancha urbana desborda el Ensanche y aparecen barrios nuevos en los antiguos pueblos anexionados.',
       ]),
       vuelo('ams1956', 1956, '1956', 'Vuelo americano (Serie B)', 'AMS_1956-1957', [
         'El vuelo realizado por el ejército de Estados Unidos en 1956-57, tras los acuerdos de 1953 que permitieron sus bases en España (Torrejón entre ellas). Es la primera imagen completa y fiable de todo el país y la referencia para estudiar el antes y el después del desarrollismo.',

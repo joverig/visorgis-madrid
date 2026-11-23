@@ -84,9 +84,11 @@
       const k = [nombre, clase, conTexto].join('|');
       if (!cache[k]) {
         const hito = clase === 'hito', propia = clase === 'propia';
-        const yac = clase === 'yacimiento';
+        const yac = clase === 'yacimiento', barrio = clase === 'barrio';
         cache[k] = new S.Style({
-          image: yac
+          image: barrio
+            ? new S.Circle({ radius: 5.5, fill: new S.Fill({ color: '#7fc8b4' }), stroke: new S.Stroke({ color: '#1a1816', width: 1.5 }) })
+            : yac
             ? new S.Circle({ radius: 7, fill: new S.Fill({ color: '#b07a4f' }), stroke: new S.Stroke({ color: '#f3e3cf', width: 2 }) })
             : hito
             ? new S.RegularShape({ points: 4, radius: 7, angle: 0, fill: new S.Fill({ color: '#f3d27a' }),
@@ -96,7 +98,7 @@
                 stroke: new S.Stroke({ color: '#1a1816', width: 1.5 }) }),
           text: conTexto ? new S.Text({
             text: nombre, offsetY: -15, font: fuente('600', hito ? 13.5 : 13),
-            fill: new S.Fill({ color: hito ? '#fbe7b0' : '#fff7ea' }), stroke: halo,
+            fill: new S.Fill({ color: hito ? '#fbe7b0' : barrio ? '#c9efe4' : '#fff7ea' }), stroke: halo,
           }) : undefined,
           zIndex: hito ? 11 : propia ? 10 : 8,
         });
@@ -117,6 +119,7 @@
       }
       if (tipo === 'hito') return punto(feat.get('nombre'), 'hito', conTexto);
       if (tipo === 'yacimiento') return punto(feat.get('nombre'), 'yacimiento', zoom >= 11.5);
+      if (tipo === 'barrio') return punto(feat.get('nombre'), 'barrio', zoom >= 12);
       const propia = feat.get('desde') === vigente;
       // Las puertas que siguen en pie (Alcalá, Toledo) se rotulan siempre
       return punto(feat.get('nombre'), propia ? 'propia' : 'anterior', conTexto && (propia || !!feat.get('conservada')));
@@ -212,7 +215,7 @@
     grupoHistorico = new ol.layer.Group({ layers: capas.map((c) => c.layer), zIndex: 10 });
 
     const srcPerimetros = fuenteGeojson(C.perimetros);
-    srcPerimetros.setAttributions('Límites y puertas: recreación aproximada propia · Término municipal © OpenStreetMap contributors (ODbL)');
+    srcPerimetros.setAttributions('Límites, puertas, hitos y barrios: recreación aproximada propia');
     capaPerimetros = new ol.layer.Vector({
       source: srcPerimetros, style: estiloPerimetros(srcPerimetros), zIndex: 40, declutter: true,
     });
@@ -318,8 +321,7 @@
     d.scrollTop = 0;
     $('.panel-cuerpo').scrollTop = 0;
     centrarMarca(idx);
-    $('#fuente').textContent = (c.atribucion || '') +
-      (c.anio >= 1948 && $('#chk-perimetros').checked ? ' · Término municipal © OpenStreetMap contributors (ODbL)' : '');
+    $('#fuente').textContent = c.atribucion || '';
     const t = $('#tipo');
     t.textContent = { plano: 'Plano histórico', foto: 'Fotografía aérea',
       recreacion: 'Recreación aproximada' }[c.tipo] || '';
