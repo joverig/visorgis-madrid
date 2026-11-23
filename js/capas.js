@@ -171,7 +171,7 @@
   };
 
   window.VISOR_CONFIG = {
-    centro: [-3.7038, 40.4168], // Puerta del Sol
+    centro: [-3.7115, 40.4150], // entre el Palacio Real y Sol: se ven las murallas y el centro histórico
     zoom: 15,
     minZoom: 9,
     maxZoom: 20,

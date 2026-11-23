@@ -287,12 +287,16 @@
     rafAnim = requestAnimationFrame(paso);
   }
 
+  // Iconos SVG (los caracteres ⏮ ▶ ⏭ se pintan como emoji en iOS)
+  const icono = (d) => '<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="' + d + '"/></svg>';
+  const ICONO_PLAY = icono('M7 4.5v15L19.5 12z');
+  const ICONO_PAUSA = icono('M6.5 5h4v14h-4zM13.5 5h4v14h-4z');
   let rafPlay = null, ultimo = 0, espera = 0;
   function reproducir() {
     const n = capas.length;
     if (estado.v >= n - 1) aplicar(0);
     estado.reproduciendo = true;
-    $('#play').textContent = '❚❚';
+    $('#play').innerHTML = ICONO_PAUSA;
     $('#play').title = 'Pausa (espacio)';
     espera = C.pausaSeg;
     ultimo = performance.now();
@@ -314,7 +318,7 @@
   function parar() {
     estado.reproduciendo = false;
     cancelAnimationFrame(rafPlay);
-    $('#play').textContent = '▶';
+    $('#play').innerHTML = ICONO_PLAY;
     $('#play').title = 'Reproducir (espacio)';
   }
 
