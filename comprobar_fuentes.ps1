@@ -103,4 +103,38 @@ try {
     Write-Host "   $(@($lineas).Count) capas (lista en comprobaciones\cm_capas_todas.txt)"
 } catch { Write-Host "   ERROR: $($_.Exception.Message)" -ForegroundColor Red }
 
+# ---------------------------------------------------------------- 4. Cobertura de los vuelos del IGN sobre el municipio
+# Rejilla de 5 x 5 celdas sobre el termino municipal; cada celda se pide aparte y se mira si viene en blanco.
+Write-Host '4. Cobertura de los vuelos del IGN sobre el municipio (rejilla 5x5)'
+$vuelos = @('AMS_1956-1957','Interministerial_1973-1986','Nacional_1981-1986','OLISTAT') +
+          @($probar | Where-Object { $_ -match '^PNOA(2006|2009|2011|2014|2017|2020|2023)$' })
+$x0 = -420700; $x1 = -399000; $y0 = 4910000; $y1 = 4937000   # aprox. -3.78/-3.58, 40.33/40.52
+$filas = @('capa;celdas_con_imagen;celdas_total;cobertura_pct')
+foreach ($capa in $vuelos) {
+    $con = 0; $tot = 0
+    for ($i = 0; $i -lt 5; $i++) {
+        for ($j = 0; $j -lt 5; $j++) {
+            $ax = $x0 + ($x1 - $x0) * $i / 5; $bx = $x0 + ($x1 - $x0) * ($i + 1) / 5
+            $ay = $y0 + ($y1 - $y0) * $j / 5; $by = $y0 + ($y1 - $y0) * ($j + 1) / 5
+            $u = "$wms`?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=$capa&STYLES=&CRS=EPSG:3857&BBOX=$ax,$ay,$bx,$by&WIDTH=64&HEIGHT=64&FORMAT=image/jpeg"
+            $tot++
+            try {
+                $datos = Bajar $u
+                $ms = New-Object System.IO.MemoryStream(,$datos)
+                $img = [System.Drawing.Bitmap]::FromStream($ms)
+                $nb = 0; $n = 0
+                for ($x = 2; $x -lt $img.Width; $x += 6) { for ($y = 2; $y -lt $img.Height; $y += 6) {
+                    $c = $img.GetPixel($x, $y); $n++
+                    if ($c.R -gt 245 -and $c.G -gt 245 -and $c.B -gt 245) { $nb++ } } }
+                $img.Dispose(); $ms.Dispose()
+                if ($nb / $n -lt 0.5) { $con++ }
+            } catch { }
+        }
+    }
+    $pct = [math]::Round(100.0 * $con / $tot)
+    $filas += "$capa;$con;$tot;$pct"
+    Write-Host ("   {0,-28} {1,3}% del municipio" -f $capa, $pct)
+}
+Escribir (Join-Path $salida 'cobertura_vuelos.csv') ($filas -join "`r`n")
+
 Write-Host "`nListo. Resultados en comprobaciones\ y el termino en www\datos_propios\" -ForegroundColor Green
