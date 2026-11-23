@@ -41,35 +41,25 @@
 
   /* ---------- PNOA: un texto por año ---------- */
   const textosPNOA = {
-    2004: [
-      'Primera ortofoto del Plan Nacional de Ortofotografía Aérea, que desde entonces fotografía toda España cada dos o tres años con la misma calidad. Madrid vive el final del gran ciclo inmobiliario: la población de la capital roza los 3,1 millones y la región crece a un ritmo que no se veía desde los años sesenta.',
-      'Es el momento de los PAU (Programas de Actuación Urbanística) del Plan General de 1997: Sanchinarro, Las Tablas, Montecarmelo, Arroyo del Fresno, Carabanchel o Ensanche de Vallecas aparecen como enormes cuadrículas de calles trazadas y manzanas a medio construir. En 2004 arrancan las obras de soterramiento de la M-30.',
-      'En el mapa: busca las cuadrículas de tierra con calles ya asfaltadas pero sin edificios en los bordes norte y sureste del municipio.',
-    ],
     2006: [
-      'Madrid en plena obra. Las excavaciones del soterramiento de la M-30 abren una herida a lo largo del Manzanares, del puente de Segovia a Legazpi, y en el Paseo de la Castellana se levantan las Cuatro Torres sobre la antigua Ciudad Deportiva del Real Madrid. En febrero se inaugura la Terminal 4 de Barajas, diseñada por Richard Rogers y Estudio Lamela.',
+      'Primera ortofoto del Plan Nacional de Ortofotografía Aérea sobre Madrid, que desde entonces fotografía el país cada dos o tres años. Madrid en plena obra: las excavaciones del soterramiento de la M-30 abren una herida a lo largo del Manzanares, del puente de Segovia a Legazpi, y en el Paseo de la Castellana se levantan las Cuatro Torres sobre la antigua Ciudad Deportiva del Real Madrid. En febrero se inaugura la Terminal 4 de Barajas, diseñada por Richard Rogers y Estudio Lamela.',
       'La ciudad olímpica es el gran proyecto político (candidaturas a 2012 y 2016), y la vivienda alcanza precios récord. Los PAU empiezan a llenarse de bloques de manzana cerrada con piscina interior.',
       'En el mapa: la T4 al este de Barajas, la herida de la M-30 junto al río y las grúas en la Castellana norte.',
     ],
-    2008: [
-      'El año del estallido de la burbuja inmobiliaria. Las Cuatro Torres ya dominan el skyline norte y el soterramiento de la M-30 ha terminado: el tráfico circula bajo tierra y sobre él empieza a dibujarse un parque lineal.',
-      'Muchas promociones de los nuevos barrios se quedan a medio hacer y los ensanches del sureste (Valdecarros, Los Berrocales) se paralizan antes de empezar. Madrid acumula una de las deudas municipales más altas de Europa por las grandes obras de la década.',
-      'En el mapa: compara los PAU con 2004 y fíjate en las parcelas que siguen vacías; aparecerán así durante años.',
+    2009: [
+      'Madrid tras el estallido de la burbuja inmobiliaria (2008). Las Cuatro Torres ya dominan el skyline norte sobre la antigua Ciudad Deportiva del Real Madrid, la Terminal 4 de Barajas lleva tres años en servicio y el soterramiento de la M-30 ha terminado: el tráfico circula bajo tierra y sobre él se está construyendo Madrid Río.',
+      'Muchas promociones de los PAU (Sanchinarro, Las Tablas, Montecarmelo, Ensanche de Vallecas) se quedan a medio hacer y los ensanches del sureste se paralizan antes de empezar. Madrid acumula una de las deudas municipales más altas de Europa por las grandes obras de la década, y la ciudad pierde la candidatura olímpica de 2016.',
+      'En el mapa: compara los PAU con 2006 y fíjate en las parcelas que siguen vacías; aparecerán así durante años.',
     ],
-    2010: [
-      'Crisis económica y paro: la construcción se detiene casi por completo. Pero el gran cambio de la ciudad central ya es visible: sobre la M-30 soterrada se está acabando Madrid Río, un parque de diez kilómetros a lo largo del Manzanares que se inaugura entre 2010 y 2011.',
-      'La red de Metro ha crecido enormemente desde 1995 (Metrosur, MetroNorte, MetroEste) y conecta ya los municipios del sur metropolitano, que han pasado de ciudades dormitorio a ciudades con vida propia.',
-      'En el mapa: el río vuelve a verse verde entre el Puente del Rey y el Matadero.',
-    ],
-    2012: [
-      'Lo peor de la crisis. Apenas se inician viviendas y muchas grúas desaparecen. Las ortofotos de estos años son casi idénticas entre sí, salvo por el lento relleno de algunas manzanas de los PAU.',
-      'En 2011 el 15-M llenó la Puerta del Sol de acampadas y asambleas, y Madrid se convierte en escenario de un ciclo de protestas que cambiará la política española. Madrid Río ya está plenamente en uso y Matadero Madrid se consolida como centro cultural.',
-      'En el mapa: Valdebebas, junto a Barajas, tiene calles y parque trazados pero casi ningún edificio.',
+    2011: [
+      'Lo peor de la crisis: apenas se inician viviendas y el paro se dispara. Pero el gran cambio de la ciudad central ya es visible: Madrid Río, un parque de diez kilómetros sobre la M-30 soterrada, se inaugura entre 2010 y 2011 y devuelve el Manzanares a los madrileños.',
+      'En mayo de 2011 el 15-M llena la Puerta del Sol de acampadas y asambleas, y Madrid se convierte en escenario de un ciclo de protestas que cambiará la política española. La red de Metro ha crecido enormemente desde 1995 y une ya los municipios del sur metropolitano.',
+      'En el mapa: el río vuelve a verse verde entre el Puente del Rey y el Matadero, y Valdebebas tiene calles y parque trazados pero casi ningún edificio.',
     ],
     2014: [
       'La actividad empieza a recuperarse tímidamente. Madrid ha perdido población respecto a 2008 por la emigración y la crisis, y la ciudad se mira hacia dentro: se rehabilitan mercados, se peatonalizan calles del centro y crece el turismo.',
       'Los grandes desarrollos pendientes (Operación Chamartín, ensanches del sureste) siguen en los tribunales o en los despachos.',
-      'En el mapa: compara Valdebebas y Ensanche de Vallecas con 2012; vuelven las obras.',
+      'En el mapa: compara Valdebebas y Ensanche de Vallecas con 2011; vuelven las obras.',
     ],
     2017: [
       'Recuperación inmobiliaria y nuevo impulso a la construcción. Se inaugura el estadio Metropolitano en el antiguo estadio de La Peineta (San Blas-Canillejas) y la Castellana suma la quinta torre, Caleido, en obras.',
@@ -92,7 +82,9 @@
       'En el mapa: compara con 1956 o con el vuelo de 1975 para ver cuánto ha crecido la mancha urbana.',
     ],
   };
-  const pnoaAnios = [2004, 2006, 2008, 2010, 2012, 2014, 2017, 2020, 2022, 2024];
+  // Solo años del PNOA histórico con imagen sobre Madrid (2004, 2008, 2010, 2012, 2022 y 2024 no la tienen);
+  // lo más reciente lo da el paso 'Hoy' (PNOA de máxima actualidad)
+  const pnoaAnios = [2006, 2009, 2011, 2014, 2017, 2020];
 
   /* ---------- Ortofotos de la Comunidad de Madrid (solo las seleccionadas en data/capas_cm.json) ---------- */
   const textosCM = {
@@ -303,7 +295,9 @@
       {
         id: 'actual', anio: 2100, etiqueta: 'Hoy', titulo: 'PNOA de máxima actualidad', tipo: 'foto',
         descripcion: [
-          'La ortofoto más reciente del IGN, que se actualiza continuamente con los últimos vuelos. Es la misma imagen que aparece de fondo y con el botón "Ver hoy".',
+          'La ortofoto más reciente del IGN, que se actualiza con los últimos vuelos. Madrid ha dejado atrás la pandemia y Filomena (enero de 2021), la mayor nevada en medio siglo, que tumbó cientos de miles de árboles. La capital roza los 3,5 millones de habitantes y la región los 7, empujada por la inmigración latinoamericana y la llegada de empresas.',
+          'Las grandes transformaciones siguen en los bordes: los ensanches del sureste (Los Berrocales, Los Ahijones, Valdecarros), Valdebebas y Madrid Nuevo Norte sobre las vías de Chamartín. En el centro se han reformado la Puerta del Sol, la Plaza de España y el Bernabéu, y la ciudad se debate entre turismo, vivienda y espacio público.',
+          'Es la misma imagen que aparece de fondo y con el botón "Ver hoy".',
           'Usa el control de opacidad para superponer sobre ella cualquier época: con el plano de Texeira se reconocen calles que siguen igual desde el siglo XVII, y con el vuelo de 1956 se ve cuánto ha crecido la ciudad.',
         ],
         fuente: {
