@@ -13,7 +13,8 @@ Visor web de la evolución histórica de Madrid: una línea temporal con fundido
 - Control de **opacidad** para ver la época sobre la ortofoto actual.
 - Texto de contexto histórico para cada paso, con qué buscar en el mapa.
 - Capa de **límites, puertas e hitos** con fecha sobre todos los años: el límite vigente en continuo,
-  los anteriores en discontinuo (murallas, cercas, Ensanche y término municipal provisional).
+  los anteriores en discontinuo (murallas, cercas, Ensanche y, desde 1900, mancha urbana aproximada),
+  más los barrios nuevos que van apareciendo.
 - Diseño adaptado a móvil (panel inferior desplegable, línea temporal desplazable).
 - El estado (capa, zoom y centro) se guarda en la URL para compartir vistas.
 
